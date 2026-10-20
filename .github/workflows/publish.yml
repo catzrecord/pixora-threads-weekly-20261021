@@ -1,0 +1,38 @@
+name: PIXORA one-week Threads test
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Verify account/media or dispatch an approved due post
+        type: choice
+        default: check
+        options: [check, preflight, due]
+  schedule:
+    # WIB = UTC+7. Retry windows prevent a missed minute from losing a post.
+    - cron: '30,40,50 1 21-27 10 *'
+    - cron: '0,10,20,30 6,13 21-27 10 *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pixora-weekly-1fatherx
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+      PUBLISH_ENABLED: ${{ vars.PUBLISH_ENABLED }}
+      PERSIST_GIT: '1'
+      MODE: ${{ github.event_name == 'schedule' && 'due' || inputs.mode }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Approved week only, through official Threads API
+        run: python publisher.py --mode "$MODE"
