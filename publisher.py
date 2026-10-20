@@ -1,5 +1,5 @@
 """One-week approved campaign dispatcher, using only Meta's official Threads API."""
-import argparse, hashlib, json, os, subprocess, time
+import argparse, hashlib, json, os, ssl, subprocess, sys, time
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
@@ -8,6 +8,8 @@ from urllib.request import Request, urlopen
 
 ROOT=Path(__file__).resolve().parent
 API_BASE='https://graph.threads.net/v1.0/'
+# The system CA bundle is needed by this Mac's standalone Python installation.
+TLS=ssl.create_default_context(cafile='/etc/ssl/cert.pem') if sys.platform=='darwin' else ssl.create_default_context()
 
 def now():return datetime.now(timezone.utc)
 def stamp():return now().isoformat()
@@ -25,7 +27,7 @@ class API:
    'Authorization':'Bearer '+self.token,'Content-Type':'application/x-www-form-urlencoded',
    'User-Agent':'PIXORA-Weekly-Threads-Publisher/1.0'})
   try:
-   with urlopen(request,timeout=60) as response:return json.load(response)
+   with urlopen(request,timeout=60,context=TLS) as response:return json.load(response)
   except HTTPError as error:
    try:message=json.loads(error.read()).get('error',{}).get('message','Request rejected')
    except Exception:message='Request rejected'
@@ -75,16 +77,21 @@ def verify_asset(item):
  parsed=urlparse(item['url'])
  if parsed.scheme!='https' or parsed.hostname!='github.com':raise RuntimeError('Unexpected approved media host')
  req=Request(item['url'],headers={'User-Agent':'PIXORA-Weekly-Media-Check/1.0'})
- h=hashlib.sha256();size=0
- with urlopen(req,timeout=90) as response:
+ h=hashlib.sha256();size=0;first=b''
+ with urlopen(req,timeout=90,context=TLS) as response:
   mime=response.headers.get('Content-Type','').split(';')[0]
   expected='image/' if item['type']=='IMAGE' else 'video/'
-  if not mime.startswith(expected):raise RuntimeError('Hosted media has wrong MIME type')
+  # Release CDN downloads can use a generic binary MIME despite correct media bytes.
+  if not mime.startswith(expected) and mime!='application/octet-stream':raise RuntimeError('Hosted media has wrong MIME type')
   for block in iter(lambda:response.read(1024*1024),b''):
+   if not first:first=block[:16]
    size+=len(block)
    if size>item['bytes']:raise RuntimeError('Hosted media exceeds approved size')
    h.update(block)
  if size!=item['bytes'] or h.hexdigest()!=item['sha256']:raise RuntimeError('Hosted media differs from approved file')
+ if item['type']=='IMAGE' and not (first.startswith(b'\x89PNG\r\n\x1a\n') or first.startswith(b'\xff\xd8\xff')):
+  raise RuntimeError('Hosted image format is invalid')
+ if item['type']=='VIDEO' and first[4:8]!=b'ftyp':raise RuntimeError('Hosted video is not MP4')
 
 def ready(api,cid,sleep=time.sleep):
  for _ in range(12):

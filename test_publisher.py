@@ -1,4 +1,5 @@
-import json, tempfile, unittest
+import hashlib, io, json, tempfile, unittest
+from unittest.mock import patch
 from datetime import datetime, timezone
 from pathlib import Path
 import publisher as p
@@ -52,5 +53,11 @@ class Tests(unittest.TestCase):
  def test_already_published_never_repeats(self):
   self.ledger.update('TEST-01',state='published',published_id='OLD');api=FakeAPI()
   self.assertEqual(p.publish(post(),api,self.ledger,verify=lambda _:None),'published');self.assertEqual(api.calls,[])
+ def test_binary_cdn_mime_still_requires_exact_media_bytes(self):
+  raw=b'\x89PNG\r\n\x1a\n'+b'approved-image';response=io.BytesIO(raw);response.headers={'Content-Type':'application/octet-stream'}
+  item={'type':'IMAGE','url':'https://github.com/asset.png','bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()}
+  with patch.object(p,'urlopen',return_value=response):p.verify_asset(item)
+  wrong=io.BytesIO(b'<html>not media</html>');wrong.headers={'Content-Type':'application/octet-stream'}
+  with patch.object(p,'urlopen',return_value=wrong),self.assertRaises(RuntimeError):p.verify_asset(item)
 
 if __name__=='__main__':unittest.main()
