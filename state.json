@@ -5,6 +5,13 @@
       "children": [],
       "error": "More than 30 minutes late; no catch-up burst",
       "updated_at": "2026-10-21T06:28:59.924003+00:00"
+    },
+    "TEST-02": {
+      "state": "children_created",
+      "children": [
+        "18087376793505784"
+      ],
+      "updated_at": "2026-10-21T06:29:06.644518+00:00"
     }
   }
 }
