@@ -1,0 +1,14 @@
+{
+  "clips": [],
+  "runs": [
+    {
+      "checked_at": "2026-10-21T09:38:54.234212+00:00",
+      "eligible_slots": 1,
+      "new_clips": 0,
+      "fallback_preserved": true,
+      "published_by_this_run": 0,
+      "state": "fallback_retained",
+      "source_attempts": 9
+    }
+  ]
+}

@@ -24,8 +24,8 @@ def post():return {'id':'TEST-01','due':'2026-10-21T08:30:00+07:00','text':'Appr
 class Tests(unittest.TestCase):
  def setUp(self):self.temp=tempfile.TemporaryDirectory();self.root=Path(self.temp.name);self.ledger=p.Ledger(self.root)
  def tearDown(self):self.temp.cleanup()
- def test_future_and_outside_week_never_call_api(self):
-  for when in ['2026-10-20T01:30:00+00:00','2026-10-21T01:29:00+00:00','2026-10-28T01:30:00+00:00']:
+ def test_future_and_outside_campaign_never_call_api(self):
+  for when in ['2026-10-20T01:30:00+00:00','2026-10-21T01:29:00+00:00','2027-04-21T01:30:00+00:00']:
    api=FakeAPI();p.dispatch([post()],api,self.ledger,at=datetime.fromisoformat(when),enabled=True)
    self.assertEqual(api.calls,[])
  def test_wrong_account_stops_before_creation(self):
@@ -59,5 +59,22 @@ class Tests(unittest.TestCase):
   with patch.object(p,'urlopen',return_value=response):p.verify_asset(item)
   wrong=io.BytesIO(b'<html>not media</html>');wrong.headers={'Content-Type':'application/octet-stream'}
   with patch.object(p,'urlopen',return_value=wrong),self.assertRaises(RuntimeError):p.verify_asset(item)
+
+ def test_last_day_can_publish_and_next_day_cannot(self):
+  last=post();last['id']='SIX-546';last['due']='2027-04-20T20:00:00+07:00'
+  api=FakeAPI();result=p.dispatch([last],api,self.ledger,at=datetime.fromisoformat('2027-04-20T13:01:00+00:00'),enabled=True,verify=lambda _:None,sleep=lambda _:None)
+  self.assertEqual(result['state'],'published')
+  api=FakeAPI();result=p.dispatch([last],api,self.ledger,at=datetime.fromisoformat('2027-04-20T17:00:00+00:00'),enabled=True)
+  self.assertEqual(result['state'],'outside_approved_campaign');self.assertEqual(api.calls,[])
+
+ def test_pending_november_slot_uses_extended_scope(self):
+  future=post();future['id']='SIX-100';future['due']='2026-11-23T08:30:00+07:00';api=FakeAPI()
+  result=p.dispatch([future],api,self.ledger,at=datetime.fromisoformat('2026-11-23T01:31:00+00:00'),enabled=True,verify=lambda _:None,sleep=lambda _:None)
+  self.assertEqual(result['state'],'published')
+
+ def test_real_campaign_has_exact_six_month_scope(self):
+  rows=p.load_schedule();self.assertEqual(len(rows),546)
+  self.assertEqual(rows[-1]['due'],'2027-04-20T20:00:00+07:00')
+  self.assertEqual(rows[0]['id'],'TEST-01')
 
 if __name__=='__main__':unittest.main()

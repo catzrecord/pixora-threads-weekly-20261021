@@ -1,6 +1,6 @@
-"""One-week approved campaign dispatcher, using only Meta's official Threads API."""
-import argparse, hashlib, json, os, ssl, subprocess, sys, time
-from datetime import datetime, timezone
+"""Six-month owner-authorized campaign, using Meta's official Threads API."""
+import argparse, hashlib, json, os, re, ssl, subprocess, sys, time
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode, urlparse
@@ -8,6 +8,8 @@ from urllib.request import Request, urlopen
 
 ROOT=Path(__file__).resolve().parent
 API_BASE='https://graph.threads.net/v1.0/'
+CAMPAIGN_START=datetime.fromisoformat('2026-10-21T00:00:00+07:00')
+CAMPAIGN_END=datetime.fromisoformat('2027-04-21T00:00:00+07:00')
 # The system CA bundle is needed by this Mac's standalone Python installation.
 TLS=ssl.create_default_context(cafile='/etc/ssl/cert.pem') if sys.platform=='darwin' else ssl.create_default_context()
 
@@ -20,7 +22,7 @@ def save(path,value):
 class API:
  def __init__(self,token):self.token=token
  def call(self,method,path,**params):
-  url=API_BASE+path.lstrip('/');body=None
+  url=('https://graph.threads.net/' if path=='refresh_access_token' else API_BASE)+path.lstrip('/');body=None
   if method=='GET' and params:url+='?'+urlencode(params)
   elif method=='POST':body=urlencode(params).encode()
   request=Request(url,data=body,method=method,headers={
@@ -38,10 +40,14 @@ def load_schedule(root=ROOT):
  raw=(root/'schedule.json').read_bytes();approval=json.loads((root/'approval.json').read_text())
  if checksum(raw)!=approval['schedule_sha256']:raise RuntimeError('Approved schedule changed')
  posts=json.loads(raw)
- if len(posts)!=21 or approval['account']!='1fatherx':raise RuntimeError('Unexpected campaign scope')
+ if len(posts)!=546 or approval['account']!='1fatherx' or approval['start']!='2026-10-21' or approval['end']!='2027-04-20':raise RuntimeError('Unexpected campaign scope')
+ expected={(CAMPAIGN_START+timedelta(days=d)).date().isoformat()+'T'+t+':00+07:00' for d in range(182) for t in ('08:30','13:00','20:00')}
+ if {p['due'] for p in posts}!=expected or len({p['id'] for p in posts})!=546:raise RuntimeError('Missing or duplicate campaign slot')
+ if posts!=sorted(posts,key=lambda p:p['due']):raise RuntimeError('Schedule is not chronological')
  for p in posts:
   if len(p['text'])>500 or [x['type'] for x in p['media']]!=['IMAGE','VIDEO']:raise RuntimeError('Invalid carousel')
-  if not '2026-10-21'<=p['due'][:10]<='2026-10-27':raise RuntimeError('Date outside approved week')
+  if re.search(r'pixora|indo\s*photo',p['text'],re.I) or 'komen mau' not in p['text'].lower():raise RuntimeError('Caption violates approved sales voice')
+  if not CAMPAIGN_START<=datetime.fromisoformat(p['due'])<CAMPAIGN_END:raise RuntimeError('Date outside approved campaign')
  return posts
 
 class Ledger:
@@ -136,9 +142,8 @@ def publish(post,api,ledger,verify=verify_asset,sleep=time.sleep):
 def dispatch(posts,api,ledger,at=None,enabled=False,verify=verify_asset,sleep=time.sleep):
  at=at or now()
  if not enabled:return {'state':'inactive','published_by_this_run':0}
- # Never publish outside this explicitly approved one-week experiment.
- if at.isoformat()<'2026-10-21T00:00:00+00:00' or at.isoformat()>='2026-10-28T00:00:00+00:00':
-  return {'state':'outside_approved_week','published_by_this_run':0}
+ if not CAMPAIGN_START<=at<CAMPAIGN_END:
+  return {'state':'outside_approved_campaign','published_by_this_run':0}
  for post in posts:
   age=(at-datetime.fromisoformat(post['due'])).total_seconds()
   record=ledger.get(post['id'])
@@ -151,13 +156,20 @@ def dispatch(posts,api,ledger,at=None,enabled=False,verify=verify_asset,sleep=ti
  return {'state':'no_due_post','published_by_this_run':0}
 
 def main():
- parser=argparse.ArgumentParser();parser.add_argument('--mode',choices=['dry-run','check','preflight','due'],default='dry-run')
+ parser=argparse.ArgumentParser();parser.add_argument('--mode',choices=['dry-run','check','preflight','due','maintain'],default='dry-run')
  args=parser.parse_args();posts=load_schedule()
  if args.mode=='dry-run':
   print(json.dumps({'state':'dry_run','posts':len(posts),'next_due':posts[0]['due'],'network_requests':0}));return
  if args.mode=='due' and os.environ.get('PUBLISH_ENABLED')!='true':
   print(json.dumps({'state':'inactive','published_by_this_run':0}));return
- token=os.environ.get('THREADS_ACCESS_TOKEN','')
+ if args.mode=='due' and not CAMPAIGN_START<=now()<CAMPAIGN_END:
+  print(json.dumps({'state':'outside_approved_campaign','published_by_this_run':0}));return
+ from credentials import load_token, maintain
+ if args.mode=='maintain':
+  if not CAMPAIGN_START<=now()<CAMPAIGN_END:
+   print(json.dumps({'state':'outside_approved_campaign','published_by_this_run':0}));return
+  print(json.dumps(maintain(ROOT)));return
+ token=load_token(ROOT)
  if not token:raise RuntimeError('THREADS_ACCESS_TOKEN has not been configured')
  api=API(token)
  if args.mode in ('check','preflight'):
