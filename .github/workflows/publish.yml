@@ -1,4 +1,5 @@
 name: Threads six-month campaign
+run-name: Threads ${{ inputs.mode || 'timer' }} ${{ inputs.due || '' }}
 
 on:
   workflow_dispatch:
@@ -7,7 +8,11 @@ on:
         description: Verify account/media or dispatch an approved due post
         type: choice
         default: check
-        options: [check, preflight, due, roll, maintain]
+        options: [check, preflight, due, wait-due, roll, maintain]
+      due:
+        description: Exact approved due time for an early armed publisher
+        type: string
+        required: false
   schedule:
     # WIB = UTC+7. Retry windows prevent a missed minute from losing a post.
     - cron: '30,40,50 1 * * *'
@@ -24,15 +29,19 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: ${{ inputs.mode == 'wait-due' && 210 || 25 }}
     env:
       THREADS_TOKEN_VAULT_KEY: ${{ secrets.THREADS_TOKEN_VAULT_KEY }}
       GH_TOKEN: ${{ github.token }}
       PUBLISH_ENABLED: ${{ vars.PUBLISH_ENABLED }}
       PERSIST_GIT: '1'
       MODE: ${{ github.event_name == 'schedule' && (github.event.schedule == '17 14 * * *' && 'roll' || 'due') || inputs.mode }}
+      TARGET_DUE: ${{ inputs.due }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
@@ -41,6 +50,7 @@ jobs:
       - run: python -m unittest -v
         env:
           PERSIST_GIT: '0'
+      - run: node --test scheduler/test/*.test.js
       - name: Refresh near-term source media and credential
         if: env.MODE == 'roll'
         run: |
@@ -53,4 +63,4 @@ jobs:
           python producer.py
       - name: Dispatch or verify through official Threads API
         if: env.MODE != 'roll'
-        run: python publisher.py --mode "$MODE"
+        run: python -u publisher.py --mode "$MODE" --due "$TARGET_DUE"

@@ -1,5 +1,10 @@
 # Threads @1fatherx: six-month campaign
 
+Timer repair, 22 October 2026: `scheduler/` adds a separate Vercel clock that
+arms this publisher ahead of each slot. The worker waits until the approved
+time and reloads current receipts before publishing. GitHub's original cron
+remains a fallback. See scheduler/README.md for timing and duplicate protection.
+
 Owner-authorized on 21 October 2026: 546 posts, 21 October 2026 through 20 April 2027, at 08:30 / 13:00 / 20:00 WIB. The owner additionally instructed “ok aktifkan”. Existing TEST-01…TEST-21 IDs and receipts are preserved; added slots use SIX-022…SIX-546. Publication stops at the end of 20 April WIB.
 
 Every slot has finished conversational Indonesian sales copy, one real image and one real video, plus an owner screen recording for untouched future slots, fixed hashes and public release URLs. Copy uses gw/lo, sells tools first, omits product names and ends with komen mau. WhatsApp supports the offer with campaign information and clipper tips. No free access, price, subscription, fixed output count, guaranteed viral or income claims are made.

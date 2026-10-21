@@ -1,0 +1,6 @@
+{
+  "name": "threads-1fatherx-clock",
+  "private": true,
+  "scripts": {"test": "node --test test/*.test.js"},
+  "engines": {"node": "24.x"}
+}

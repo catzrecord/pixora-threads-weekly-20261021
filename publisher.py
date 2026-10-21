@@ -162,15 +162,40 @@ def dispatch(posts,api,ledger,at=None,enabled=False,verify=verify_asset,sleep=ti
   return {'state':state,'post_id':post['id'],'published_by_this_run':int(state=='published')}
  return {'state':'no_due_post','published_by_this_run':0}
 
+def wait_for_due(posts,ledger,target_due,clock=now,sleep=time.sleep,report=print):
+ """Arm exactly one approved slot before its deadline; never publish while waiting."""
+ matching=[post for post in posts if post['due']==target_due]
+ if len(matching)!=1:raise RuntimeError('Armed time must match exactly one approved slot')
+ post=matching[0];due=datetime.fromisoformat(target_due);at=clock()
+ if ledger.get(post['id'])['state'] in ('published','publishing','needs_reconciliation','missed'):
+  return {'state':'already_recorded','post_id':post['id'],'published_by_this_run':0}
+ if (due-at).total_seconds()>10800:raise RuntimeError('Cannot arm a slot more than three hours early')
+ if (at-due).total_seconds()>1800:
+  return {'state':'target_too_late','post_id':post['id'],'published_by_this_run':0}
+ report(json.dumps({'state':'armed','post_id':post['id'],'due':target_due,
+  'wait_seconds':max(0,int((due-at).total_seconds())),'published_by_this_run':0}),flush=True)
+ while clock()<due:sleep(min(30,max(0,(due-clock()).total_seconds())))
+ return {'state':'due','post_id':post['id'],'published_by_this_run':0}
+
 def main():
- parser=argparse.ArgumentParser();parser.add_argument('--mode',choices=['dry-run','check','preflight','due','maintain'],default='dry-run')
+ parser=argparse.ArgumentParser();parser.add_argument('--mode',choices=['dry-run','check','preflight','due','wait-due','maintain'],default='dry-run')
+ parser.add_argument('--due',default='')
  args=parser.parse_args();posts=load_schedule()
  if args.mode=='dry-run':
   print(json.dumps({'state':'dry_run','posts':len(posts),'next_due':posts[0]['due'],'network_requests':0}));return
- if args.mode=='due' and os.environ.get('PUBLISH_ENABLED')!='true':
+ if args.mode in ('due','wait-due') and os.environ.get('PUBLISH_ENABLED')!='true':
   print(json.dumps({'state':'inactive','published_by_this_run':0}));return
- if args.mode=='due' and not CAMPAIGN_START<=now()<CAMPAIGN_END:
+ if args.mode in ('due','wait-due') and not CAMPAIGN_START<=now()<CAMPAIGN_END:
   print(json.dumps({'state':'outside_approved_campaign','published_by_this_run':0}));return
+ if args.mode=='wait-due':
+  result=wait_for_due(posts,Ledger(),args.due)
+  if result['state']!='due':print(json.dumps(result));return
+  # Timers can start well before publication. Read the latest receipts, approved
+  # media and renewed credential after the wait, under the workflow's one lock.
+  if os.environ.get('PERSIST_GIT')=='1':
+   subprocess.run(['git','pull','--ff-only','origin','main'],cwd=ROOT,check=True,capture_output=True)
+  posts=[post for post in load_schedule() if post['due']==args.due]
+  if len(posts)!=1:raise RuntimeError('Armed slot is no longer approved')
  from credentials import load_token, maintain
  if args.mode=='maintain':
   if not CAMPAIGN_START<=now()<CAMPAIGN_END:

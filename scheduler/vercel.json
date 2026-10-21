@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {"path": "/api/arm?slot=0830", "schedule": "0 0 * * *"},
+    {"path": "/api/arm?slot=1300", "schedule": "0 5 * * *"},
+    {"path": "/api/arm?slot=2000", "schedule": "0 12 * * *"}
+  ],
+  "functions": {"api/arm.js": {"maxDuration": 60}}
+}
