@@ -1,0 +1,60 @@
+{
+  "account": "1fatherx",
+  "kind": "owner_screen_recording",
+  "historical": true,
+  "visually_reviewed": true,
+  "recordings": [
+    {
+      "sha256": "d792d5f4159743551250fc4ce121f50d1e73b140e999cc1bf8a6baae290e9d9f",
+      "source_url": "https://www.threads.com/@1fatherx/post/DYT2X7lE_ws",
+      "source_post_id": "18000322655927520",
+      "source_media_id": "18182047492379816",
+      "source_timestamp": "2026-05-14T07:08:51+0000",
+      "bytes": 3300536,
+      "width": 640,
+      "height": 360,
+      "duration_seconds": 158.730204,
+      "full_decode": "PASS",
+      "original_frame_and_audio": true
+    },
+    {
+      "sha256": "8eab0420f650e61a00662cae89d5b51fd5458e12a444567ee0728fd175e67ad5",
+      "source_url": "https://www.threads.com/@1fatherx/post/DYFCrTLk0vT",
+      "source_post_id": "18022026866657706",
+      "source_media_id": "18022026866657706",
+      "source_timestamp": "2026-05-08T13:08:40+0000",
+      "bytes": 4598376,
+      "width": 640,
+      "height": 360,
+      "duration_seconds": 230.015465,
+      "full_decode": "PASS",
+      "original_frame_and_audio": true
+    },
+    {
+      "sha256": "fffeaf953653352bc85999419b6bcbd2241654fb7b1ff9f46a76a9b28eac4acd",
+      "source_url": "https://www.threads.com/@1fatherx/post/DWqPsdkk_By",
+      "source_post_id": "17882160129521612",
+      "source_media_id": "18108540868879162",
+      "source_timestamp": "2026-04-03T06:50:37+0000",
+      "bytes": 5340366,
+      "width": 640,
+      "height": 358,
+      "duration_seconds": 280.618889,
+      "full_decode": "PASS",
+      "original_frame_and_audio": true
+    },
+    {
+      "sha256": "420a1dd85054d6a55f95781fc91de37cc9f80e9399747f63aa9c772dbeb354de",
+      "source_url": "https://www.threads.com/@1fatherx/post/DVaqcD3k8R_",
+      "source_post_id": "18392330179158220",
+      "source_media_id": "17896458135260036",
+      "source_timestamp": "2026-03-03T09:05:03+0000",
+      "bytes": 1038001,
+      "width": 640,
+      "height": 360,
+      "duration_seconds": 49.666077,
+      "full_decode": "PASS",
+      "original_frame_and_audio": true
+    }
+  ]
+}

@@ -44,8 +44,15 @@ def load_schedule(root=ROOT):
  expected={(CAMPAIGN_START+timedelta(days=d)).date().isoformat()+'T'+t+':00+07:00' for d in range(182) for t in ('08:30','13:00','20:00')}
  if {p['due'] for p in posts}!=expected or len({p['id'] for p in posts})!=546:raise RuntimeError('Missing or duplicate campaign slot')
  if posts!=sorted(posts,key=lambda p:p['due']):raise RuntimeError('Schedule is not chronological')
+ demo_policy=approval.get('owner_screen_recording_revision')
  for p in posts:
-  if len(p['text'])>500 or [x['type'] for x in p['media']]!=['IMAGE','VIDEO']:raise RuntimeError('Invalid carousel')
+  expected=['IMAGE','VIDEO']
+  if demo_policy and p['id'] not in demo_policy['preserved_job_ids']:
+   expected+=['VIDEO']
+   demo=p['media'][-1]
+   if demo.get('kind')!='owner_screen_recording' or demo.get('sha256') not in demo_policy['recording_sha256']:raise RuntimeError('Owned screen recording missing or changed')
+   if demo['sha256']==p['media'][1]['sha256']:raise RuntimeError('Duplicate primary and screen recording video')
+  if len(p['text'])>500 or [x['type'] for x in p['media']]!=expected:raise RuntimeError('Invalid carousel')
   if re.search(r'pixora|indo\s*photo',p['text'],re.I) or 'komen mau' not in p['text'].lower():raise RuntimeError('Caption violates approved sales voice')
   if not CAMPAIGN_START<=datetime.fromisoformat(p['due'])<CAMPAIGN_END:raise RuntimeError('Date outside approved campaign')
  return posts

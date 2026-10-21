@@ -38,6 +38,22 @@ class Tests(unittest.TestCase):
   self.assertEqual([x['media_type'] for x in creates],['IMAGE','VIDEO','CAROUSEL'])
   self.assertEqual(creates[-1]['text'],post()['text'])
   self.assertEqual(len(creates[-1]['children'].split(',')),2)
+ def test_owner_screen_recording_is_third_media_in_same_carousel(self):
+  row=post();row['media'].append({'type':'VIDEO','url':'https://github.com/demo.mp4','alt_text':'Rekaman layar pemilik'})
+  api=FakeAPI();self.assertEqual(p.publish(row,api,self.ledger,verify=lambda _:None),'published')
+  creates=[x[2] for x in api.calls if x[1]=='123/threads']
+  self.assertEqual([x['media_type'] for x in creates],['IMAGE','VIDEO','VIDEO','CAROUSEL'])
+  self.assertEqual(creates[2]['video_url'],row['media'][2]['url'])
+  self.assertEqual(creates[-1]['text'],row['text'])
+  self.assertEqual(len(creates[-1]['children'].split(',')),3)
+ def test_missing_required_screen_recording_fails_before_network(self):
+  source=p.ROOT;rows=json.loads((source/'schedule.json').read_text());approval=json.loads((source/'approval.json').read_text())
+  if not approval.get('owner_screen_recording_revision'):self.skipTest('Demo revision not yet applied')
+  target=next(x for x in rows if x['id'] not in approval['owner_screen_recording_revision']['preserved_job_ids'])
+  target['media'].pop()
+  raw=(json.dumps(rows,ensure_ascii=False,indent=2)+'\n').encode();(self.root/'schedule.json').write_bytes(raw)
+  approval['schedule_sha256']=hashlib.sha256(raw).hexdigest();(self.root/'approval.json').write_text(json.dumps(approval))
+  with self.assertRaises(RuntimeError):p.load_schedule(self.root)
  def test_ambiguous_publish_is_durable_and_not_retried(self):
   api=FakeAPI(fail_publish=True);self.assertEqual(p.publish(post(),api,self.ledger,verify=lambda _:None),'needs_reconciliation')
   retry=FakeAPI();self.assertEqual(p.publish(post(),retry,p.Ledger(self.root),verify=lambda _:None),'needs_reconciliation')
