@@ -2,8 +2,13 @@
   "account": "1fatherx",
   "approved_at": "2026-10-20T13:20:09.548636+00:00",
   "original_posts_sha256": "effa1d388022a798d82523f0a00eaa2efe270bce52e9216b94471dd0794bbc6a",
-  "schedule_sha256": "8bfdca18e3630048aba1b1047767f9fadc31973d80969bdd491a06cc07a59a63",
+  "schedule_sha256": "58d7915b45119931a1fafa1ff12aca00dd68823898a0ab94ecb8e604d505926e",
   "method": "Official Threads API",
   "start": "2026-10-21",
-  "end": "2026-10-27"
+  "end": "2026-10-27",
+  "previous_schedule_sha256": "8bfdca18e3630048aba1b1047767f9fadc31973d80969bdd491a06cc07a59a63",
+  "revised_posts_sha256": "84f65251baca3e54938eceb851f8c42e73873174bca56c8b5719e141a6f52bf5",
+  "copy_revision": "brandfree-reference-v4",
+  "copy_revised_at": "2026-10-21T08:42:36.938624+00:00",
+  "owner_revision_instruction": "aku mau postingan di threadsnya kata2nya seperti disitu, nggak usah kasih pixora dsb!!! kamu bisa revisi semuanya?"
 }
