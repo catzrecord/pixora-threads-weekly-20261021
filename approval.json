@@ -2,32 +2,33 @@
   "account": "1fatherx",
   "approved_at": "2026-10-20T13:20:09.548636+00:00",
   "original_posts_sha256": "effa1d388022a798d82523f0a00eaa2efe270bce52e9216b94471dd0794bbc6a",
-  "schedule_sha256": "b63219aff9a3cb2f9671da1edc13a7ce8cbf75237b7a7b7cf695ae44ada7a22a",
+  "schedule_sha256": "f044f772c94f7345acd475d0def233292d115550a4a136a0c17f4123df5d8c53",
   "method": "Official Threads API",
   "start": "2026-10-21",
-  "end": "2027-04-20",
-  "previous_schedule_sha256": "78467938ed40c89f7ec15d71773b643466a1f987967377c4f9d072a256772feb",
+  "end": "2027-10-20",
+  "previous_schedule_sha256": "b63219aff9a3cb2f9671da1edc13a7ce8cbf75237b7a7b7cf695ae44ada7a22a",
   "revised_posts_sha256": "84f65251baca3e54938eceb851f8c42e73873174bca56c8b5719e141a6f52bf5",
   "copy_revision": "brandfree-six-month-v1",
   "copy_revised_at": "2026-10-21T08:42:36.938624+00:00",
   "owner_revision_instruction": "aku mau postingan di threadsnya kata2nya seperti disitu, nggak usah kasih pixora dsb!!! kamu bisa revisi semuanya?",
-  "posts": 546,
+  "posts": 1095,
   "posts_per_day": 3,
   "times_wib": [
     "08:30",
     "13:00",
     "20:00"
   ],
-  "extended_at": "2026-10-21T09:31:02.299573+00:00",
-  "owner_extension_instruction": "ok jadwalkan dan buatkan konten nya selama 6 bulan ke depan",
+  "extended_at": "2026-10-23T06:05:07.300581+00:00",
+  "owner_extension_instruction": "sekarang lanjutkan jadwal threads supaya sampai 1 tahun dari pertama kali posting, ambil podcast2 yang viral, dokter tirta dsb politik juga banyakin porsinya, lo harus search dan pastikan videonya sudah teredit",
   "rolling_media_authorized": true,
   "rolling_media_policy": {
     "near_term_horizon_days": 7,
     "max_age_days_at_posting": 21,
-    "max_new_clips_per_run": 2,
+    "max_new_clips_per_run": 3,
     "original_frame_and_audio": true,
     "fallback": "Already attached genuine owned proof media",
-    "never_replace_started_or_published_jobs": true
+    "never_replace_started_or_published_jobs": true,
+    "year_slot_minimum_observed_views": 100000
   },
   "owner_activation_instruction": "ok aktifkan",
   "activated_at": "2026-10-21T09:37:34.876572+00:00",
@@ -51,5 +52,21 @@
       "VIDEO"
     ],
     "rolling_producer_preserves_third_media": true
+  },
+  "days": 365,
+  "annual_extension": {
+    "preserved_posts": 546,
+    "additional_posts": 549,
+    "new_edited_clips": 60,
+    "source_episodes": 20,
+    "new_post_categories": {
+      "politics": 330,
+      "tirta": 137,
+      "other": 82
+    },
+    "source_views_observed_on": "2026-10-23",
+    "baseline_sources_are_archival": true,
+    "rolling_refresh_near_publication": true,
+    "clip_reuse": "Sixty verified new edits rotate across 549 added posts; each post also retains an owner screen recording."
   }
 }

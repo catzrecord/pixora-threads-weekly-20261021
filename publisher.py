@@ -1,4 +1,4 @@
-"""Six-month owner-authorized campaign, using Meta's official Threads API."""
+"""Owner-authorized annual campaign, using Meta's official Threads API."""
 import argparse, hashlib, json, os, re, ssl, subprocess, sys, time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -9,7 +9,8 @@ from urllib.request import Request, urlopen
 ROOT=Path(__file__).resolve().parent
 API_BASE='https://graph.threads.net/v1.0/'
 CAMPAIGN_START=datetime.fromisoformat('2026-10-21T00:00:00+07:00')
-CAMPAIGN_END=datetime.fromisoformat('2027-04-21T00:00:00+07:00')
+CAMPAIGN_END=datetime.fromisoformat('2027-10-21T00:00:00+07:00')
+SCOPES={'2027-04-20':182,'2027-10-20':365}
 # The system CA bundle is needed by this Mac's standalone Python installation.
 TLS=ssl.create_default_context(cafile='/etc/ssl/cert.pem') if sys.platform=='darwin' else ssl.create_default_context()
 
@@ -40,9 +41,10 @@ def load_schedule(root=ROOT):
  raw=(root/'schedule.json').read_bytes();approval=json.loads((root/'approval.json').read_text())
  if checksum(raw)!=approval['schedule_sha256']:raise RuntimeError('Approved schedule changed')
  posts=json.loads(raw)
- if len(posts)!=546 or approval['account']!='1fatherx' or approval['start']!='2026-10-21' or approval['end']!='2027-04-20':raise RuntimeError('Unexpected campaign scope')
- expected={(CAMPAIGN_START+timedelta(days=d)).date().isoformat()+'T'+t+':00+07:00' for d in range(182) for t in ('08:30','13:00','20:00')}
- if {p['due'] for p in posts}!=expected or len({p['id'] for p in posts})!=546:raise RuntimeError('Missing or duplicate campaign slot')
+ days=SCOPES.get(approval.get('end'))
+ if not days or len(posts)!=days*3 or approval['account']!='1fatherx' or approval['start']!='2026-10-21':raise RuntimeError('Unexpected campaign scope')
+ expected={(CAMPAIGN_START+timedelta(days=d)).date().isoformat()+'T'+t+':00+07:00' for d in range(days) for t in ('08:30','13:00','20:00')}
+ if {p['due'] for p in posts}!=expected or len({p['id'] for p in posts})!=days*3:raise RuntimeError('Missing or duplicate campaign slot')
  if posts!=sorted(posts,key=lambda p:p['due']):raise RuntimeError('Schedule is not chronological')
  demo_policy=approval.get('owner_screen_recording_revision')
  for p in posts:
@@ -55,6 +57,10 @@ def load_schedule(root=ROOT):
   if len(p['text'])>500 or [x['type'] for x in p['media']]!=expected:raise RuntimeError('Invalid carousel')
   if re.search(r'pixora|indo\s*photo',p['text'],re.I) or 'komen mau' not in p['text'].lower():raise RuntimeError('Caption violates approved sales voice')
   if not CAMPAIGN_START<=datetime.fromisoformat(p['due'])<CAMPAIGN_END:raise RuntimeError('Date outside approved campaign')
+  if p['id'].startswith('YEAR-'):
+   primary=p['media'][1]
+   if primary.get('kind')!='podcast_practice_source' or not primary.get('edit_verified') or not primary.get('source_url') or primary['source_url'] not in p['text']:
+    raise RuntimeError('Annual extension requires a verified edited podcast and source credit')
  return posts
 
 class Ledger:
@@ -209,7 +215,7 @@ def main():
   if args.mode=='preflight':
    for post in posts[:3]:
     for item in post['media']:verify_asset(item)
-  print(json.dumps({'state':'verified','username':me['username'],'media_first_day_checked':args.mode=='preflight','published_by_this_run':0}));return
+  print(json.dumps({'state':'verified','username':me['username'],'posts':len(posts),'last_due':posts[-1]['due'],'media_first_day_checked':args.mode=='preflight','published_by_this_run':0}));return
  result=dispatch(posts,api,Ledger(),enabled=os.environ.get('PUBLISH_ENABLED')=='true')
  print(json.dumps(result))
 

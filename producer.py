@@ -9,7 +9,8 @@ from pathlib import Path
 import publisher as p
 
 ROOT=Path(__file__).resolve().parent
-CHANNELS=['HASCreative','VINDES','radityadika','AgakLaenOfficial','HelmyYahyaBicara','CXOMedia','curhatbang','corbuzier','MaknaTalks','DanielManantaNetwork','MenjadiManusia','kasisolusi','tuah_kreasi','TSMediaID']
+CHANNELS=['TotalPolitik','tempodotco','GitaWirjawan','AkbarFaizalUncensored','AbrahamSamadSPEAKUP','HASCreative','VINDES','radityadika','AgakLaenOfficial','HelmyYahyaBicara','CXOMedia','curhatbang','corbuzier','MaknaTalks','DanielManantaNetwork','MenjadiManusia','kasisolusi','tuah_kreasi','TSMediaID']
+CHANNEL_GROUPS={'politics':['TotalPolitik','tempodotco','GitaWirjawan','curhatbang'],'tirta':['radityadika','corbuzier','HASCreative','tirtapengpengpeng'],'other':['VINDES','AgakLaenOfficial','HASCreative','radityadika']}
 REPO='catzrecord/pixora-threads-weekly-20261021'
 RELEASE='rolling-practice-media'
 CREDIT='\n\nCuplikan sumber buat latihan: '
@@ -21,27 +22,36 @@ class Quiet:
  def warning(self,*args):pass
  def error(self,*args):pass
 
-def policy(info,due):
+def policy(info,due,min_views=10000):
  try:age=(due.date()-datetime.strptime(info.get('upload_date',''),'%Y%m%d').date()).days
  except ValueError:return False
- return 0<=age<=21 and (info.get('duration') or 0)>=1200 and (info.get('view_count') or 0)>=10000 and info.get('live_status') not in ('is_live','is_upcoming') and not EXCLUDE.search(info.get('title',''))
+ return 0<=age<=21 and (info.get('duration') or 0)>=1200 and (info.get('view_count') or 0)>=min_views and info.get('live_status') not in ('is_live','is_upcoming') and not EXCLUDE.search(info.get('title',''))
+
+def needs_refresh(post):
+ media=post['media'][1]
+ if not post['id'].startswith('YEAR-'):return media['kind']!='podcast_practice_source'
+ try:age=(datetime.fromisoformat(post['due']).date()-datetime.strptime(media.get('source_upload_date',''),'%Y%m%d').date()).days
+ except ValueError:return True
+ return age>21 or age<0
 
 def targets(posts,ledger,at,horizon=7):
- return [x for x in posts if x['due'][11:16]=='20:00' and x['due'][:10]>='2026-10-28'
+ return [x for x in posts if (x['due'][11:16]=='20:00' or x['id'].startswith('YEAR-')) and x['due'][:10]>='2026-10-28'
   and at+timedelta(hours=24)<datetime.fromisoformat(x['due'])<=at+timedelta(days=horizon)
-  and ledger.get(x['id'])['state']=='pending' and x['media'][1]['kind']!='podcast_practice_source']
+  and ledger.get(x['id'])['state']=='pending' and needs_refresh(x)]
 
 def options():
  return dict(quiet=True,no_warnings=True,skip_download=True,socket_timeout=15,retries=0,extractor_retries=0,logger=Quiet())
 
-def discover(at,used):
+def discover(at,used,category=None):
  from yt_dlp import YoutubeDL
- offset=at.toordinal()%len(CHANNELS);channels=(CHANNELS+CHANNELS)[offset:offset+4]
+ group=CHANNEL_GROUPS.get(category,CHANNELS)
+ offset=at.toordinal()%len(group);channels=(group+group)[offset:offset+4]
  ids=[];lists=[]
  for channel in channels:
   try:
    with YoutubeDL({**options(),'extract_flat':True,'playlistend':8}) as dl:
-    listing=dl.extract_info('https://www.youtube.com/@'+channel+'/videos',download=False)
+    url='ytsearch8:dr Tirta podcast '+channel if category=='tirta' else 'https://www.youtube.com/@'+channel+'/videos'
+    listing=dl.extract_info(url,download=False)
    group=[]
    for x in listing.get('entries') or []:
     vid=x.get('id','')
@@ -57,13 +67,20 @@ def extract(vid):
  from yt_dlp import YoutubeDL
  with YoutubeDL(options()) as dl:return dl.extract_info('https://www.youtube.com/watch?v='+vid,download=False)
 
+def original_audio(info,audio):
+ source_language=(info.get('language') or 'id').split('-')[0]
+ choices=[x for x in audio if (x.get('language') or '').split('-')[0]==source_language or 'original' in x.get('format_note','').lower()]
+ choices.sort(key=lambda x:('original' in x.get('format_note','').lower(),x.get('language_preference',-1),x.get('ext')=='m4a',x.get('abr') or 0),reverse=True)
+ if not choices:raise RuntimeError('Original-language audio track is not identified')
+ return choices[0]
+
 def render(info,directory):
  # Use original aspect ratio and original audio. No overlays, crop, speed changes or music.
  formats=info.get('formats') or []
  vs=[x for x in formats if x.get('protocol')=='https' and 0<(x.get('height') or 0)<=720 and x.get('vcodec','none')!='none' and x.get('acodec')=='none']
  audio=[x for x in formats if x.get('protocol')=='https' and x.get('vcodec')=='none' and x.get('acodec','none')!='none']
  vs.sort(key=lambda x:((x.get('height') or 0),x.get('vcodec','').startswith('avc1')),reverse=True)
- audio.sort(key=lambda x:(x.get('ext')=='m4a',x.get('abr') or 0),reverse=True)
+ audio=[original_audio(info,audio)]
  if not vs or not audio:raise RuntimeError('Public source streams unavailable')
  low=180;high=info['duration']-210
  chapters=[x for x in info.get('chapters') or [] if low<=x.get('start_time',0)<=high and not re.search(r'intro|sponsor|iklan|outro|opening|closing',x.get('title',''),re.I)]
@@ -104,7 +121,7 @@ def render(info,directory):
   'title':info.get('title'),'channel':info.get('channel'),'source_upload_date':info.get('upload_date'),
   'views_observed':info.get('view_count'),'observed_at':p.stamp(),'start_seconds':start,'end_seconds':start+90,
   'selection_method':method+'; checked against original-language captions','transcript_excerpt':excerpt,
-  'duration_seconds':float(probe['format']['duration']),'full_decode_verified':True,'original_frame_and_audio':True,
+  'duration_seconds':float(probe['format']['duration']),'full_decode_verified':True,'original_frame_and_audio':True,'source_audio_format':audio[0]['format_id'],'source_audio_language':audio[0]['language'].split('-')[0],
   'added_elements':False,'crop_or_reframe':False,'is_app_export':False,'sha256':digest,'bytes':final.stat().st_size}
 
 def host(path):
@@ -118,8 +135,27 @@ def persist():
   ['git','add','schedule.json','approval.json','production.json'],['git','commit','-m','Refresh upcoming credited practice media'],['git','push','origin','HEAD:main']]:
   subprocess.run(cmd,cwd=ROOT,check=True,capture_output=True)
 
+def source_category(info):
+ if re.search(r'tirta',info.get('title',''),re.I):return 'tirta'
+ if info.get('channel') in ['Total Politik','Tempodotco','Gita Wirjawan','Abraham Samad SPEAK UP','Akbar Faizal Uncensored'] or re.search(r'politik|presiden|prabowo|jokowi|apbn|purbaya|demokrasi|menteri|kebijakan',info.get('title',''),re.I):return 'politics'
+ return 'other'
+
+def refreshed_caption(post,record):
+ base=post['text'].split(CREDIT)[0]
+ if post['id'].startswith('YEAR-'):
+  def timer(seconds):return f'{int(seconds)//60:02}:{int(seconds)%60:02}'
+  channel=record['channel'].replace('CURHAT BANG Denny Sumargo','Denny Sumargo')
+  marker=f"Latihan dari {channel}, {timer(record['start_seconds'])}–{timer(record['end_seconds'])}."
+  base,n=re.subn(r'Latihan dari [^\n]+',lambda _:marker,base,count=1)
+  if n!=1:raise RuntimeError('Annual source timestamp marker is missing')
+ text=base+CREDIT+record['source_url']
+ if post['id'].startswith('YEAR-'):
+  text+=' · Arsip '+datetime.strptime(record['source_upload_date'],'%Y%m%d').strftime('%Y-%m-%d')
+ if len(text)>500:raise RuntimeError('Credited caption exceeds limit')
+ return text
+
 def main():
- parser=argparse.ArgumentParser();parser.add_argument('--horizon',type=int,default=7);parser.add_argument('--max-new',type=int,default=2);parser.add_argument('--check',action='store_true');args=parser.parse_args()
+ parser=argparse.ArgumentParser();parser.add_argument('--horizon',type=int,default=7);parser.add_argument('--max-new',type=int,default=3);parser.add_argument('--check',action='store_true');args=parser.parse_args()
  at=p.now();posts=p.load_schedule();pending=targets(posts,p.Ledger(),at,args.horizon)
  report={'checked_at':at.isoformat(),'eligible_slots':len(pending),'new_clips':0,'fallback_preserved':True,'published_by_this_run':0}
  if args.check or not pending:report['state']='buffer_ready' if not pending else 'fallback_ready';print(json.dumps(report));return
@@ -129,24 +165,29 @@ def main():
  for post in posts:
   match=re.search(r'youtube\.com/watch\?v=([\w-]{11})',post['text'])
   if match:used.add(match.group(1))
- candidates=discover(at,used);attempts=0;report['candidates_discovered']=len(candidates);failures={}
- for post in pending[:min(2,max(0,args.max_new))]:
+ candidates=[];attempts=0;report['candidates_discovered']=0;failures={}
+ for post in pending[:min(3,max(0,args.max_new))]:
+  category=post.get('editorial_category')
+  candidates=discover(at,used,category)
+  report['candidates_discovered']+=len(candidates)
   for vid in list(candidates):
-   if attempts>=8:break
+   if attempts>=12:break
    candidates.remove(vid);attempts+=1;stage='metadata_unavailable'
    try:
     info=extract(vid)
-    if not policy(info,datetime.fromisoformat(post['due'])):
+    if category and source_category(info)!=category:
+     failures['category_mismatch']=failures.get('category_mismatch',0)+1;continue
+    if not policy(info,datetime.fromisoformat(post['due']),100000 if post['id'].startswith('YEAR-') else 10000):
      failures['ineligible_source']=failures.get('ineligible_source',0)+1;continue
     stage='source_render_or_host_unavailable'
     with tempfile.TemporaryDirectory(prefix='threads-source-') as tmp:
      path,record=render(info,Path(tmp));url=host(path)
      item={'type':'VIDEO','url':url,'sha256':record['sha256'],'bytes':record['bytes'],
-      'alt_text':'Cuplikan sumber podcast untuk latihan clipping; frame dan audio asli','kind':'podcast_practice_source'}
+      'alt_text':'Cuplikan sumber podcast untuk latihan clipping; frame dan audio asli','kind':'podcast_practice_source',
+      'edit_verified':True,'source_url':record['source_url'],'source_upload_date':record['source_upload_date'],'category':source_category(info)}
      p.verify_asset(item)
-    base=post['text'].split(CREDIT)[0];text=base+CREDIT+record['source_url']
-    if len(text)>500:raise RuntimeError('Credited caption exceeds limit')
-    post['text']=text;post['media'][1]=item;record['post_id']=post['id'];history['clips'].append(record)
+    text=refreshed_caption(post,record)
+    post['text']=text;post['media'][1]=item;record['post_id']=post['id'];history['clips'].append(record);used.add(vid)
     report['new_clips']+=1;break
    except Exception:
     # Public-source failure details can contain signed URLs. Never print them.

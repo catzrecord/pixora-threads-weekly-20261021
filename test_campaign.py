@@ -45,6 +45,14 @@ class CampaignTests(unittest.TestCase):
   info={'upload_date':'20261021','duration':1800,'view_count':11000,'title':'Obrolan kreator'}
   self.assertTrue(producer.policy(info,datetime.fromisoformat('2026-11-10T20:00:00+07:00')))
   self.assertFalse(producer.policy(info,datetime.fromisoformat('2026-11-12T20:00:00+07:00')))
+ def test_refresh_replaces_old_channel_timestamps_and_source_together(self):
+  row={'id':'YEAR-0547','text':'Gw ada tools.\n\nLatihan dari Tempo, 02:00–03:30. Sesi 2.\n\nKomen mau.'+producer.CREDIT+'https://old.example · Arsip 2026-10-16'}
+  record={'channel':'Gita Wirjawan','start_seconds':600,'end_seconds':690,'source_url':'https://www.youtube.com/watch?v=NEW12345678','source_upload_date':'20270418'}
+  text=producer.refreshed_caption(row,record)
+  self.assertIn('Gita Wirjawan, 10:00–11:30.',text)
+  self.assertIn('NEW12345678 · Arsip 2027-04-18',text)
+  self.assertNotIn('Tempo',text);self.assertNotIn('2026-10-16',text)
+  self.assertIn('Komen mau.',text)
  def test_discovery_interleaves_channels_before_source_attempt_limit(self):
   class Listing:
    def __init__(self,options):pass

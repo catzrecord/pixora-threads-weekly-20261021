@@ -1,4 +1,4 @@
-name: Threads six-month campaign
+name: Threads annual campaign
 run-name: Threads ${{ inputs.mode || 'timer' }} ${{ inputs.due || '' }}
 
 on:

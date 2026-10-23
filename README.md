@@ -1,43 +1,17 @@
-# Threads @1fatherx: six-month campaign
+# Threads @1fatherx — annual campaign
 
-Timer repair, 22 October 2026: `scheduler/` adds a separate Vercel clock that
-arms this publisher ahead of each slot. The worker waits until the approved
-time and reloads current receipts before publishing. GitHub's original cron
-remains a fallback. See scheduler/README.md for timing and duplicate protection.
+The owner extended the existing campaign on 23 October 2026 to 365 days: 21 October 2026 through 20 October 2027, at 08:30, 13:00 and 20:00 WIB. The total is 1,095 slots. Existing TEST/SIX identifiers, the first 546 scheduled objects and all publication receipts were preserved when adding YEAR-0547 through YEAR-1095. The extension adds 549 posts from 21 April through 20 October 2027.
 
-Owner-authorized on 21 October 2026: 546 posts, 21 October 2026 through 20 April 2027, at 08:30 / 13:00 / 20:00 WIB. The owner additionally instructed “ok aktifkan”. Existing TEST-01…TEST-21 IDs and receipts are preserved; added slots use SIX-022…SIX-546. Publication stops at the end of 20 April WIB.
+Each added post contains an approved real image, an edited podcast-practice excerpt and an original owner screen recording. New captions retain the approved gw/lo tools-sales voice and komen mau CTA, without product-name, price, free-access, guaranteed-result or income claims. Added post categories are 330 politics, 137 dr. Tirta and 82 other podcasts. Sixty new edits from twenty source episodes rotate across the added slots: 36 politics, 15 dr. Tirta and 9 other clips. These are sixty distinct new videos, not 549 unique videos. Podcast excerpts are credited archival sources, not application exports or endorsements from podcast guests. The separate owner recording demonstrates the tools.
 
-Every slot has finished conversational Indonesian sales copy, one real image and one real video, plus an owner screen recording for untouched future slots, fixed hashes and public release URLs. Copy uses gw/lo, sells tools first, omits product names and ends with komen mau. WhatsApp supports the offer with campaign information and clipper tips. No free access, price, subscription, fixed output count, guaranteed viral or income claims are made.
+Each baseline edit has original-language source captions/context, an explicit original Indonesian audio-format selection, original framing, approximately 70–105 seconds of actual edited content, H.264/AAC streams, matching audio/video duration, full decode proof and exact local/anonymous-HTTPS SHA-256 checks. No extra captions, hook, crop, music or generated background is added. YouTube view counts and upload dates are dated observations from 23 October 2026. They do not establish future popularity. The caption labels the source date as Arsip.
 
-This cloud dispatcher uses Meta's official Threads API. It is not a reservation in Threads' native interface. GitHub Actions supplies the timer and durable receipts. Scheduled times are targets; Actions can start late. More than thirty minutes late is recorded as missed, without a catch-up burst. At most one due post is published per run. Retry invocations cannot duplicate published or ambiguous jobs. PUBLISH_ENABLED=true, verified account @1fatherx, valid credentials, available quota and exact hosted media bytes are required.
+The rolling producer checks the next seven days daily, protects published, started, ambiguous and near-due jobs, and attempts up to three new edits per run. New sources for YEAR slots must have at least 100,000 observed views (legacy slots retain their 10,000 minimum), last twenty minutes or longer, be at most 21 days old at the scheduled publication date, have a chapter/replay boundary and source-language captions, and match the post category. Original audio is selected by source language/original-track metadata before bitrate, so automatic English dubs cannot silently replace Indonesian speech. Refresh updates channel, timestamps, archive date and URL together. Download/render/hosting failure preserves the already verified archive video and the owner demo, with an honest attempt record in production.json.
 
-approval.json records the extension instruction and pins schedule.json. Every date/time, ID and carousel is checked before API calls. state.json records container IDs and publication IDs. Publishing intent is pushed before the publish call. An ambiguous response becomes needs_reconciliation and is never blindly retried.
+The official Threads API publisher is enabled by PUBLISH_ENABLED, account identity/quota, the pinned approval/schedule hash and verified media. This is an API timer queue rather than a native reservation inside Threads. Vercel arms a serialized GitHub worker before each slot. The worker reloads current receipts and approval at the due time. GitHub cron remains a fallback; jobs over thirty minutes late are marked missed without a catch-up burst. Published or ambiguous jobs are never blindly retried. The Vercel clock accepts both the preserved six-month and authorized annual scopes, supports the Contents API 1 MB boundary using Git blobs, and stops after the authorized final date.
 
-## Media and ongoing production
+Credentials remain encrypted in token.enc. The vault key is only in server-side Actions secrets and the owner's restricted local key file. Daily maintenance refreshes tokens after twenty days or with twenty days remaining; account checks and encrypted persistence precede success reporting. Revocation/expiration fails closed.
 
-The initial library has 35 distinct real images and 26 distinct videos: genuine screenshots, real-photo/screenshot composites, three historical screen-recording excerpts, three verified output examples, and twenty credited podcast-practice excerpts. Proof material is intentionally reused. These are not 546 unique videos or fresh app runs. Silent historical screen recordings retain their original audio state.
+Validation: python -m unittest -v and node --test scheduler/test/*.test.js. publisher.py --mode check verifies account/quota without publishing. producer.py --check reports near-term refresh eligibility without changing media. A prepared IMAGE/VIDEO/VIDEO carousel was verified through unpublished Meta containers before deployment. Actual publication receipts remain in state.json.
 
-Captions and original two media stay intact. TEST-01 and TEST-02 retain their original two-media history; the 544 untouched future jobs now have a third item, an owner screen recording. Thirteen additional recent practice excerpts fill evening slots through 9 November. Other future slots already have genuine owned proof media. A practice caption includes its source URL and is not described as a new tool output.
-
-At 21:17 WIB daily, producer.py checks the upcoming seven days, rotates fourteen public channels, and attempts at most two new clips. Episodes must have at least 10,000 observed views, last at least twenty minutes, and be at most 21 days old on the scheduled posting date. Public chapter/replay information and original-language captions are required. Views are an observation, not a future trending claim.
-
-Each practice excerpt preserves the original frame and audio for ninety seconds: no added hook, subtitle, crop, CTA, music, AI background or speed change. Stream duration, frames, full decode and hosted bytes are verified before changing an untouched future slot. Started, published, ambiguous and near-due jobs are excluded. Source failure preserves the already attached real proof media. production.json records attempts and provenance. No future source is called produced before its actual media pass checks.
-
-## Credentials
-
-Daily maintenance checks the token and renews it when twenty days old or with twenty days remaining. token.enc contains authenticated Fernet ciphertext. Its key is only in GitHub Actions encrypted secret THREADS_TOKEN_VAULT_KEY and the owner's local restricted secret directory. A renewed credential is checked against @1fatherx, encrypted and pushed before reporting success. Plaintext credentials are never committed. Revoked or expired authorization fails closed and requires owner reauthorization.
-
-## Checks and operation
-
-python -m unittest -v covers campaign bounds, account identity, exact carousel content, hosted bytes, duplicates, ambiguous outcomes, source age, encrypted storage and renewal. Set PERSIST_GIT=0 for tests. publisher.py --mode check verifies account/quota without publishing. preflight additionally verifies first-day hosted media. Manual workflow mode roll runs maintenance and rolling production without publishing; due publishes only a currently due approved slot.
-
-Local review: /Users/coong/Documents/Threads-1fatherx-6Bulan-20261021. The local gallery is a delivery snapshot; this repository is the current schedule and receipt authority as source credits/media refresh. The older annual producer is superseded and must not run alongside this dispatcher.
-
-Primary references:
-- Meta Threads API and refresh: https://www.postman.com/meta/threads/documentation/dht3nzz/threads-api
-- Scheduled workflow behavior: https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule
-- Authenticated encryption: https://cryptography.io/en/latest/fernet/
-
-## Owner screen recording addition
-
-Owner requested one additional screen recording from their Threads posts on 21 October 2026. Four visually reviewed historical recordings rotate as item three in every untouched future carousel. Original frame/audio bytes, captions, first two media, job IDs, times and publication receipts are preserved. approval.json pins the four recording hashes and the two historical exceptions. The rolling producer replaces only item two, so the owner demo persists when practice media refresh. No additional feed publication is triggered by this revision.
+Local review and source/QA evidence: /Users/coong/Documents/Threads-1fatherx-1Tahun-20261023. Earlier six-month and four-post-per-day annual folders are historical artifacts; do not restore their calendars over this repository.

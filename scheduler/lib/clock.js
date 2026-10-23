@@ -16,7 +16,7 @@ async function run({authorization,query,env=process.env,at=new Date(),fetcher=fe
  const slot=SLOTS[String(query.slot)];
  if(!slot)return {status:400,body:{state:'invalid_slot'}};
  const date=localDate(at),due=`${date}T${slot}:00+07:00`;
- if(date<'2026-10-21'||date>'2027-04-20')return {status:200,body:{state:'outside_approved_campaign'}};
+ if(date<'2026-10-21'||date>'2027-10-20')return {status:200,body:{state:'outside_approved_campaign'}};
  const remaining=(new Date(due)-at)/1000;
  if(remaining>10800)return {status:200,body:{state:'too_early',due}};
  if(remaining< -1800)return {status:200,body:{state:'too_late',due}};
@@ -28,12 +28,20 @@ async function run({authorization,query,env=process.env,at=new Date(),fetcher=fe
   if(!response.ok)throw Error(`GitHub clock request failed (${response.status})`);
   return response.status===204?null:response.json();
  }
- async function file(name){const d=await github(`contents/${name}?ref=main`);return Buffer.from(d.content,'base64')}
+ async function file(name){
+  let d=await github(`contents/${name}?ref=main`);
+  // The annual schedule is larger than the Contents API's 1 MB inline limit.
+  if(d.encoding==='none'||(!d.content&&d.sha))d=await github(`git/blobs/${d.sha}`);
+  if(typeof d.content!=='string'||!d.content)throw Error('Approved campaign file is unavailable');
+  return Buffer.from(d.content,'base64');
+ }
  const [rawSchedule,rawApproval,rawState,enabled]=await Promise.all([
   file('schedule.json'),file('approval.json'),file('state.json'),github('actions/variables/PUBLISH_ENABLED')]);
  const schedule=JSON.parse(rawSchedule),approval=JSON.parse(rawApproval),ledger=JSON.parse(rawState);
- if(approval.account!=='1fatherx'||approval.start!=='2026-10-21'||approval.end!=='2027-04-20'||schedule.length!==546||
+ const days={'2027-04-20':182,'2027-10-20':365}[approval.end];
+ if(approval.account!=='1fatherx'||approval.start!=='2026-10-21'||!days||schedule.length!==days*3||
   createHash('sha256').update(rawSchedule).digest('hex')!==approval.schedule_sha256)throw Error('Approved campaign verification failed');
+ if(date>approval.end)return {status:200,body:{state:'outside_approved_campaign'}};
  if(enabled.value!=='true')return {status:200,body:{state:'publisher_disabled',due}};
  const matching=schedule.filter(p=>p.due===due);
  if(matching.length!==1)throw Error('Approved slot is missing or duplicated');
