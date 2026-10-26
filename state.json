@@ -192,14 +192,16 @@
       "permalink": "https://www.threads.com/@1fatherx/post/De8lvUeEUdB"
     },
     "TEST-18": {
-      "state": "publishing",
+      "state": "published",
       "children": [
         "18088222790505784",
         "18088222817505784",
         "18088222820505784"
       ],
-      "updated_at": "2026-10-26T13:01:13.904400+00:00",
-      "container_id": "18088223090505784"
+      "updated_at": "2026-10-26T13:01:19.503021+00:00",
+      "container_id": "18088223090505784",
+      "published_id": "18006552362991504",
+      "permalink": "https://www.threads.com/@1fatherx/post/De9V1jKFfGh"
     }
   }
 }
