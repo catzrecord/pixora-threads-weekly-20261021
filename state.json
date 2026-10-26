@@ -180,13 +180,13 @@
       "permalink": "https://www.threads.com/@1fatherx/post/De8G4iRilbq"
     },
     "TEST-17": {
-      "state": "container_created",
+      "state": "publishing",
       "children": [
         "18088173443505784",
         "18088173467505784",
         "18088173473505784"
       ],
-      "updated_at": "2026-10-26T06:00:40.734486+00:00",
+      "updated_at": "2026-10-26T06:00:57.143127+00:00",
       "container_id": "18088173668505784"
     }
   }
