@@ -1,5 +1,43 @@
 [
   {
+    "id": "TIRTA-LOCAL-01",
+    "title": "Ditolong Supir Truk Saat Gowes",
+    "source_url": "https://www.youtube.com/watch?v=fPQqb_A0cIQ",
+    "historical_export": false,
+    "recording_date": "2026-10-28",
+    "validation": "PASS",
+    "workflow": "Manual local-source excerpt from downloaded YouTube video; actual app audio QC and render. Full-source automatic preview froze and is not claimed successful.",
+    "source_start_seconds": 163,
+    "source_end_seconds": 199,
+    "subtitle_corrections": {
+      "Goes": "Gowes",
+      "Jarek": "Jarak",
+      "Sipang-Jomin": "Simpang Jomin"
+    },
+    "recording": {
+      "type": "VIDEO",
+      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-video-only-20261028/cec40c19f4f656f9222a6242986ac70dae787cca38b298bde97cf342af444116.mp4",
+      "sha256": "cec40c19f4f656f9222a6242986ac70dae787cca38b298bde97cf342af444116",
+      "bytes": 270595,
+      "kind": "owner_screen_recording",
+      "alt_text": "Rekaman layar asli PIXORA menampilkan hasil project lokal dr. Tirta",
+      "source_url": "https://www.youtube.com/watch?v=fPQqb_A0cIQ",
+      "local_path": "RECORDINGS/cec40c19f4f656f9222a6242986ac70dae787cca38b298bde97cf342af444116.mp4",
+      "full_decode_verified": true
+    },
+    "result": {
+      "type": "VIDEO",
+      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-video-only-20261028/cc674e188b9ebf460dc8fc364551d385f625e1d71f6f25e580b529164b064d25.mp4",
+      "sha256": "cc674e188b9ebf460dc8fc364551d385f625e1d71f6f25e580b529164b064d25",
+      "bytes": 4687349,
+      "kind": "verified_pixora_render",
+      "alt_text": "Hasil export asli PIXORA dengan subtitle audio dan framing wide; sumber dr. Tirta",
+      "source_url": "https://www.youtube.com/watch?v=fPQqb_A0cIQ",
+      "local_path": "RESULTS/cc674e188b9ebf460dc8fc364551d385f625e1d71f6f25e580b529164b064d25.mp4",
+      "full_decode_verified": true
+    }
+  },
+  {
     "id": "ARI-ARCHIVE-01",
     "title": "Ari Lasso Tetap Tampil Meski Cuma 18 Penonton",
     "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",

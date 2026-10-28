@@ -2,7 +2,7 @@
   "account": "1fatherx",
   "approved_at": "2026-10-20T13:20:09.548636+00:00",
   "original_posts_sha256": "effa1d388022a798d82523f0a00eaa2efe270bce52e9216b94471dd0794bbc6a",
-  "schedule_sha256": "d5c987594d28a3a564bc0ec695bf1b465ced3264ecf5be315e07fa450a6e0f97",
+  "schedule_sha256": "ba1537fc54391e4d9ec8175277c6e94a7093d388580c6353aed5b7faeb73027a",
   "method": "Official Threads API",
   "start": "2026-10-21",
   "end": "2027-10-20",
@@ -70,7 +70,7 @@
     "clip_reuse": "Sixty verified new edits rotate across 549 added posts; each post also retains an owner screen recording."
   },
   "video_only_revision": {
-    "revised_at": "2026-10-28T13:45:28.177953+00:00",
+    "revised_at": "2026-10-28T14:12:28.860590+00:00",
     "from_due": "2026-10-29T08:30:00+07:00",
     "instruction": "ok lanjutkan ganti semua gambar ai buatan lo dengan video rekaman layar dan hasilnya juga",
     "required_media_order": [
@@ -110,11 +110,17 @@
     ],
     "generated_images_allowed": false,
     "recording_and_export_must_match": true,
-    "unique_demo_pairs": 3,
-    "unique_source_urls": 1,
+    "unique_demo_pairs": 4,
+    "unique_source_urls": 2,
     "reuse_disclosure": "Verified demo pairs rotate across future slots. Slots are not unique fresh app runs.",
     "rolling_podcast_replacement_disabled": true,
     "pairs": [
+      {
+        "id": "TIRTA-LOCAL-01",
+        "source_url": "https://www.youtube.com/watch?v=fPQqb_A0cIQ",
+        "recording_sha256": "cec40c19f4f656f9222a6242986ac70dae787cca38b298bde97cf342af444116",
+        "result_sha256": "cc674e188b9ebf460dc8fc364551d385f625e1d71f6f25e580b529164b064d25"
+      },
       {
         "id": "ARI-ARCHIVE-01",
         "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
