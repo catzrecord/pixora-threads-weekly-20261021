@@ -252,14 +252,16 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DfBQeMAlay9"
     },
     "SIX-023": {
-      "state": "publishing",
+      "state": "published",
       "children": [
         "18088497737505784",
         "18088497758505784",
         "18088497761505784"
       ],
-      "updated_at": "2026-10-28T06:00:58.804765+00:00",
-      "container_id": "18088498205505784"
+      "updated_at": "2026-10-28T06:01:03.999977+00:00",
+      "container_id": "18088498205505784",
+      "published_id": "18064988591547191",
+      "permalink": "https://www.threads.com/@1fatherx/post/DfBvVQujXX4"
     }
   }
 }
