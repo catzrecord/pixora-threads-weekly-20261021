@@ -264,13 +264,13 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DfBvVQujXX4"
     },
     "SIX-024": {
-      "state": "container_created",
+      "state": "publishing",
       "children": [
         "18088543763505784",
         "18088543784505784",
         "18088543787505784"
       ],
-      "updated_at": "2026-10-28T13:00:44.415972+00:00",
+      "updated_at": "2026-10-28T13:01:01.175887+00:00",
       "container_id": "18088544024505784"
     }
   }
