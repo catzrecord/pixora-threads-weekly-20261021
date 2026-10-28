@@ -17,6 +17,20 @@ TLS=ssl.create_default_context(cafile='/etc/ssl/cert.pem') if sys.platform=='dar
 def now():return datetime.now(timezone.utc)
 def stamp():return now().isoformat()
 def checksum(data):return hashlib.sha256(data).hexdigest()
+def is_video_only(post,approval):
+ revision=approval.get('video_only_revision')
+ return bool(revision and post['due']>=revision['from_due'])
+
+def validate_demo_pair(post,revision):
+ media=post['media'];pair=next((x for x in revision['pairs'] if x['id']==post.get('app_demo_pair_id')),None)
+ if not pair or [x['type'] for x in media]!=['VIDEO','VIDEO']:
+  raise RuntimeError('Video-only post requires a screen recording and application export')
+ if [x.get('kind') for x in media]!=['owner_screen_recording','verified_pixora_render']:
+  raise RuntimeError('Video-only post requires genuine application media')
+ if [x.get('sha256') for x in media]!=[pair['recording_sha256'],pair['result_sha256']] or media[0]['sha256']==media[1]['sha256']:
+  raise RuntimeError('Screen recording and application export do not match approved pair')
+ if any(x.get('source_url')!=pair['source_url'] for x in media) or pair['source_url'] not in post['text']:
+  raise RuntimeError('Application demo source credit does not match approved pair')
 def save(path,value):
  temp=path.with_suffix('.tmp');temp.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n');temp.replace(path)
 
@@ -48,8 +62,11 @@ def load_schedule(root=ROOT):
  if posts!=sorted(posts,key=lambda p:p['due']):raise RuntimeError('Schedule is not chronological')
  demo_policy=approval.get('owner_screen_recording_revision')
  for p in posts:
+  video_only=is_video_only(p,approval)
   expected=['IMAGE','VIDEO']
-  if demo_policy and p['id'] not in demo_policy['preserved_job_ids']:
+  if video_only:
+   validate_demo_pair(p,approval['video_only_revision']);expected=['VIDEO','VIDEO']
+  elif demo_policy and p['id'] not in demo_policy['preserved_job_ids']:
    expected+=['VIDEO']
    demo=p['media'][-1]
    if demo.get('kind')!='owner_screen_recording' or demo.get('sha256') not in demo_policy['recording_sha256']:raise RuntimeError('Owned screen recording missing or changed')
@@ -57,7 +74,7 @@ def load_schedule(root=ROOT):
   if len(p['text'])>500 or [x['type'] for x in p['media']]!=expected:raise RuntimeError('Invalid carousel')
   if re.search(r'pixora|indo\s*photo',p['text'],re.I) or 'komen mau' not in p['text'].lower():raise RuntimeError('Caption violates approved sales voice')
   if not CAMPAIGN_START<=datetime.fromisoformat(p['due'])<CAMPAIGN_END:raise RuntimeError('Date outside approved campaign')
-  if p['id'].startswith('YEAR-'):
+  if p['id'].startswith('YEAR-') and not video_only:
    primary=p['media'][1]
    if primary.get('kind')!='podcast_practice_source' or not primary.get('edit_verified') or not primary.get('source_url') or primary['source_url'] not in p['text']:
     raise RuntimeError('Annual extension requires a verified edited podcast and source credit')

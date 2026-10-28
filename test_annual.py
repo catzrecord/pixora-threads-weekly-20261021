@@ -10,28 +10,26 @@ class AnnualTests(unittest.TestCase):
   self.assertEqual({x['due'][11:16] for x in last},{'08:30','13:00','20:00'})
   self.assertEqual(last[0]['due'][:10],'2027-10-14')
   self.assertEqual(last[-1]['due'],'2027-10-20T20:00:00+07:00')
- def test_added_slots_require_edited_podcast_and_source_credit(self):
+ def test_added_slots_require_matching_app_export_and_source_credit(self):
   rows=p.load_schedule();approval=json.loads((p.ROOT/'approval.json').read_text())
-  row=next(x for x in rows if x['id'].startswith('YEAR-'));row['media'][1]['edit_verified']=False
+  row=next(x for x in rows if x['id'].startswith('YEAR-'));row['media'][1]['source_url']='https://www.youtube.com/watch?v=WRONGSOURCE'
   with tempfile.TemporaryDirectory() as tmp:
    root=Path(tmp);raw=(json.dumps(rows,ensure_ascii=False,indent=2)+'\n').encode();(root/'schedule.json').write_bytes(raw)
    approval['schedule_sha256']=hashlib.sha256(raw).hexdigest();(root/'approval.json').write_text(json.dumps(approval))
-   with self.assertRaisesRegex(RuntimeError,'verified edited podcast'):p.load_schedule(root)
- def test_new_political_podcast_has_independent_owner_demo(self):
-  rows=[x for x in p.load_schedule() if x['id'].startswith('YEAR-') and x['editorial_category']=='politics']
-  self.assertGreaterEqual(len(rows),330)
+   with self.assertRaisesRegex(RuntimeError,'source credit'):p.load_schedule(root)
+ def test_annual_slots_have_screen_recording_then_app_export(self):
+  rows=[x for x in p.load_schedule() if x['id'].startswith('YEAR-')]
+  self.assertEqual(len(rows),549)
   for row in rows:
-   self.assertEqual(row['media'][1]['category'],'politics')
-   self.assertNotEqual(row['media'][1]['sha256'],row['media'][2]['sha256'])
-   self.assertEqual(row['media'][2]['kind'],'owner_screen_recording')
- def test_archive_sources_are_eligible_for_refresh_but_started_jobs_are_protected(self):
+   self.assertEqual([x['type'] for x in row['media']],['VIDEO','VIDEO'])
+   self.assertNotEqual(row['media'][0]['sha256'],row['media'][1]['sha256'])
+   self.assertEqual(row['media'][0]['kind'],'owner_screen_recording')
+   self.assertEqual(row['media'][1]['kind'],'verified_pixora_render')
+ def test_annual_app_pairs_are_protected_from_podcast_refresh(self):
   rows=p.load_schedule();at=datetime.fromisoformat('2027-04-21T00:00:00+07:00')
   with tempfile.TemporaryDirectory() as tmp:
    ledger=p.Ledger(Path(tmp));targets=producer.targets(rows,ledger,at,7)
-   self.assertTrue(targets)
-   self.assertTrue(all(x['id'].startswith('YEAR-') for x in targets))
-   target=targets[0];ledger.update(target['id'],state='children_created')
-   self.assertNotIn(target['id'],[x['id'] for x in producer.targets(rows,ledger,at,7)])
+   self.assertEqual(targets,[])
  def test_search_phrase_does_not_misclassify_unrelated_content(self):
   self.assertEqual(producer.source_category({'title':'DAN UFO TURUN DI INDONESIA','channel':'Deddy Corbuzier'}),'other')
   self.assertEqual(producer.source_category({'title':'Obrolan dr. Tirta','channel':'Raditya Dika'}),'tirta')

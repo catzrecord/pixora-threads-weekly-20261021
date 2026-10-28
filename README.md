@@ -1,5 +1,15 @@
 # Threads @1fatherx — annual campaign
 
+## Current owner revision: video only, 28 October 2026
+
+This revision supersedes the image/podcast media mix described below for all future posts. The first 24 scheduled objects and their publication receipts remain unchanged. Starting 29 October 2026, the 1,071 remaining slots use exactly two videos: an actual application screen recording, followed by its matching original application export. No future image or unrelated podcast-practice excerpt is permitted.
+
+`app-demo-pairs.json` records media provenance, source URLs, capture dates, historical-export labels and full-decode evidence. `approval.json` pins each allowed recording/export pair and the complete schedule hash. Pairs rotate across slots; this is not a claim of 1,071 unique fresh app runs. The rolling podcast producer skips paired app-demo posts. Token maintenance, account/quota checks, late-slot skipping and protection against duplicate/ambiguous publication continue.
+
+The owner authorized this replacement and continued publishing. PUBLISH_ENABLED remains false during preparation, and is restored only after the replacement is deployed and verified. Local package, recordings, original exports, preview and QA: `/Users/coong/Documents/Threads-1fatherx-VideoOnly-20261028`.
+
+The following paragraphs document the historical campaign before this revision.
+
 The owner extended the existing campaign on 23 October 2026 to 365 days: 21 October 2026 through 20 October 2027, at 08:30, 13:00 and 20:00 WIB. The total is 1,095 slots. Existing TEST/SIX identifiers, the first 546 scheduled objects and all publication receipts were preserved when adding YEAR-0547 through YEAR-1095. The extension adds 549 posts from 21 April through 20 October 2027.
 
 Each added post contains an approved real image, an edited podcast-practice excerpt and an original owner screen recording. New captions retain the approved gw/lo tools-sales voice and komen mau CTA, without product-name, price, free-access, guaranteed-result or income claims. Added post categories are 330 politics, 137 dr. Tirta and 82 other podcasts. Sixty new edits from twenty source episodes rotate across the added slots: 36 politics, 15 dr. Tirta and 9 other clips. These are sixty distinct new videos, not 549 unique videos. Podcast excerpts are credited archival sources, not application exports or endorsements from podcast guests. The separate owner recording demonstrates the tools.

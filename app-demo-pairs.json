@@ -1,0 +1,92 @@
+[
+  {
+    "id": "ARI-ARCHIVE-01",
+    "title": "Ari Lasso Tetap Tampil Meski Cuma 18 Penonton",
+    "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
+    "historical_export": true,
+    "recording_date": "2026-10-28",
+    "validation": "PASS",
+    "recording": {
+      "type": "VIDEO",
+      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-video-only-20261028/2998a4e18786e7d20fb355e3023eb408001e4eb9226c068d815703d584b4e618.mp4",
+      "sha256": "2998a4e18786e7d20fb355e3023eb408001e4eb9226c068d815703d584b4e618",
+      "bytes": 258946,
+      "kind": "owner_screen_recording",
+      "alt_text": "Rekaman layar asli pemutaran hasil export di aplikasi; project arsip, direkam ulang 28 Oktober 2026",
+      "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
+      "local_path": "RECORDINGS/2998a4e18786e7d20fb355e3023eb408001e4eb9226c068d815703d584b4e618.mp4",
+      "full_decode_verified": true
+    },
+    "result": {
+      "type": "VIDEO",
+      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/approved-media-20261021/40e3d98ac0091784a49f22c9214e859c90956bc562f3eb03bf6f1a47b1523227.mp4",
+      "sha256": "40e3d98ac0091784a49f22c9214e859c90956bc562f3eb03bf6f1a47b1523227",
+      "bytes": 44325030,
+      "kind": "verified_pixora_render",
+      "alt_text": "Contoh hasil tools clipping dengan subtitle dan hook",
+      "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
+      "local_path": "RESULTS/40e3d98ac0091784a49f22c9214e859c90956bc562f3eb03bf6f1a47b1523227.mp4",
+      "full_decode_verified": true
+    }
+  },
+  {
+    "id": "ARI-ARCHIVE-02",
+    "title": "Prinsip Ari Lasso: Berikan yang Terbaik",
+    "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
+    "historical_export": true,
+    "recording_date": "2026-10-28",
+    "validation": "PASS",
+    "recording": {
+      "type": "VIDEO",
+      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-video-only-20261028/402191d52710fd304204d93be4b3850f8bec4b75e7a3d08d6d388173e05e113b.mp4",
+      "sha256": "402191d52710fd304204d93be4b3850f8bec4b75e7a3d08d6d388173e05e113b",
+      "bytes": 180276,
+      "kind": "owner_screen_recording",
+      "alt_text": "Rekaman layar asli pemutaran hasil export di aplikasi; project arsip, direkam ulang 28 Oktober 2026",
+      "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
+      "local_path": "RECORDINGS/402191d52710fd304204d93be4b3850f8bec4b75e7a3d08d6d388173e05e113b.mp4",
+      "full_decode_verified": true
+    },
+    "result": {
+      "type": "VIDEO",
+      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/approved-media-20261021/87135bb1d46d129d32db4e094d59ccd5a8fe57ac1a3981f9f095d35e4ccfb73b.mp4",
+      "sha256": "87135bb1d46d129d32db4e094d59ccd5a8fe57ac1a3981f9f095d35e4ccfb73b",
+      "bytes": 19995032,
+      "kind": "verified_pixora_render",
+      "alt_text": "Contoh hasil tools clipping dengan subtitle dan hook",
+      "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
+      "local_path": "RESULTS/87135bb1d46d129d32db4e094d59ccd5a8fe57ac1a3981f9f095d35e4ccfb73b.mp4",
+      "full_decode_verified": true
+    }
+  },
+  {
+    "id": "ARI-ARCHIVE-03",
+    "title": "Foto Bareng Ahmad Dhani? Jangan Tersinggung",
+    "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
+    "historical_export": true,
+    "recording_date": "2026-10-28",
+    "validation": "PASS",
+    "recording": {
+      "type": "VIDEO",
+      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-video-only-20261028/52c9b19e689cf21fa95cb424b748933f47e4427b90c01330f9836dad0a507c6e.mp4",
+      "sha256": "52c9b19e689cf21fa95cb424b748933f47e4427b90c01330f9836dad0a507c6e",
+      "bytes": 228645,
+      "kind": "owner_screen_recording",
+      "alt_text": "Rekaman layar asli pemutaran hasil export di aplikasi; project arsip, direkam ulang 28 Oktober 2026",
+      "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
+      "local_path": "RECORDINGS/52c9b19e689cf21fa95cb424b748933f47e4427b90c01330f9836dad0a507c6e.mp4",
+      "full_decode_verified": true
+    },
+    "result": {
+      "type": "VIDEO",
+      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/approved-media-20261021/f79777701bcbdde9c0e6e208e12b259edfdfca2e1938be61c32f3fa73382ece3.mp4",
+      "sha256": "f79777701bcbdde9c0e6e208e12b259edfdfca2e1938be61c32f3fa73382ece3",
+      "bytes": 40900747,
+      "kind": "verified_pixora_render",
+      "alt_text": "Contoh hasil tools clipping dengan subtitle dan hook",
+      "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
+      "local_path": "RESULTS/f79777701bcbdde9c0e6e208e12b259edfdfca2e1938be61c32f3fa73382ece3.mp4",
+      "full_decode_verified": true
+    }
+  }
+]

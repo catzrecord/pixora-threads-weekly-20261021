@@ -2,11 +2,11 @@
   "account": "1fatherx",
   "approved_at": "2026-10-20T13:20:09.548636+00:00",
   "original_posts_sha256": "effa1d388022a798d82523f0a00eaa2efe270bce52e9216b94471dd0794bbc6a",
-  "schedule_sha256": "f044f772c94f7345acd475d0def233292d115550a4a136a0c17f4123df5d8c53",
+  "schedule_sha256": "d5c987594d28a3a564bc0ec695bf1b465ced3264ecf5be315e07fa450a6e0f97",
   "method": "Official Threads API",
   "start": "2026-10-21",
   "end": "2027-10-20",
-  "previous_schedule_sha256": "b63219aff9a3cb2f9671da1edc13a7ce8cbf75237b7a7b7cf695ae44ada7a22a",
+  "previous_schedule_sha256": "f044f772c94f7345acd475d0def233292d115550a4a136a0c17f4123df5d8c53",
   "revised_posts_sha256": "84f65251baca3e54938eceb851f8c42e73873174bca56c8b5719e141a6f52bf5",
   "copy_revision": "brandfree-six-month-v1",
   "copy_revised_at": "2026-10-21T08:42:36.938624+00:00",
@@ -68,5 +68,71 @@
     "baseline_sources_are_archival": true,
     "rolling_refresh_near_publication": true,
     "clip_reuse": "Sixty verified new edits rotate across 549 added posts; each post also retains an owner screen recording."
+  },
+  "video_only_revision": {
+    "revised_at": "2026-10-28T13:45:28.177953+00:00",
+    "from_due": "2026-10-29T08:30:00+07:00",
+    "instruction": "ok lanjutkan ganti semua gambar ai buatan lo dengan video rekaman layar dan hasilnya juga",
+    "required_media_order": [
+      "VIDEO",
+      "VIDEO"
+    ],
+    "required_kinds": [
+      "owner_screen_recording",
+      "verified_pixora_render"
+    ],
+    "changed_jobs": 1071,
+    "preserved_job_ids": [
+      "TEST-01",
+      "TEST-02",
+      "TEST-03",
+      "TEST-04",
+      "TEST-05",
+      "TEST-06",
+      "TEST-07",
+      "TEST-08",
+      "TEST-09",
+      "TEST-10",
+      "TEST-11",
+      "TEST-12",
+      "TEST-13",
+      "TEST-14",
+      "TEST-15",
+      "TEST-16",
+      "TEST-17",
+      "TEST-18",
+      "TEST-19",
+      "TEST-20",
+      "TEST-21",
+      "SIX-022",
+      "SIX-023",
+      "SIX-024"
+    ],
+    "generated_images_allowed": false,
+    "recording_and_export_must_match": true,
+    "unique_demo_pairs": 3,
+    "unique_source_urls": 1,
+    "reuse_disclosure": "Verified demo pairs rotate across future slots. Slots are not unique fresh app runs.",
+    "rolling_podcast_replacement_disabled": true,
+    "pairs": [
+      {
+        "id": "ARI-ARCHIVE-01",
+        "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
+        "recording_sha256": "2998a4e18786e7d20fb355e3023eb408001e4eb9226c068d815703d584b4e618",
+        "result_sha256": "40e3d98ac0091784a49f22c9214e859c90956bc562f3eb03bf6f1a47b1523227"
+      },
+      {
+        "id": "ARI-ARCHIVE-02",
+        "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
+        "recording_sha256": "402191d52710fd304204d93be4b3850f8bec4b75e7a3d08d6d388173e05e113b",
+        "result_sha256": "87135bb1d46d129d32db4e094d59ccd5a8fe57ac1a3981f9f095d35e4ccfb73b"
+      },
+      {
+        "id": "ARI-ARCHIVE-03",
+        "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
+        "recording_sha256": "52c9b19e689cf21fa95cb424b748933f47e4427b90c01330f9836dad0a507c6e",
+        "result_sha256": "f79777701bcbdde9c0e6e208e12b259edfdfca2e1938be61c32f3fa73382ece3"
+      }
+    ]
   }
 }

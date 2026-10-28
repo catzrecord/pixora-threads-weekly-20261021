@@ -65,11 +65,8 @@ class CampaignTests(unittest.TestCase):
    candidates=producer.discover(self.at,set())
   self.assertEqual(len(candidates),16)
   self.assertEqual(len({vid[:2] for vid in candidates[:4]}),4)
- def test_producer_preserves_approved_week_published_and_near_due(self):
+ def test_producer_preserves_owner_approved_app_demo_pairs(self):
   rows=p.load_schedule();ledger=p.Ledger(self.root);at=datetime.fromisoformat('2026-11-03T09:00:00+00:00')
-  eligible=producer.targets(rows,ledger,at,14);self.assertTrue(eligible)
-  first=eligible[0];ledger.update(first['id'],state='published')
-  self.assertNotIn(first['id'],[x['id'] for x in producer.targets(rows,ledger,at,14)])
-  self.assertTrue(all(x['due'][:10]>='2026-10-28' and x['media'][1]['kind']!='podcast_practice_source' for x in eligible))
+  self.assertEqual(producer.targets(rows,ledger,at,14),[])
 
 if __name__=='__main__':unittest.main()

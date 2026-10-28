@@ -35,7 +35,8 @@ def needs_refresh(post):
  return age>21 or age<0
 
 def targets(posts,ledger,at,horizon=7):
- return [x for x in posts if (x['due'][11:16]=='20:00' or x['id'].startswith('YEAR-')) and x['due'][:10]>='2026-10-28'
+ # Paired app demos are curated together. A podcast excerpt cannot replace an app export.
+ return [x for x in posts if not x.get('app_demo_pair_id') and (x['due'][11:16]=='20:00' or x['id'].startswith('YEAR-')) and x['due'][:10]>='2026-10-28'
   and at+timedelta(hours=24)<datetime.fromisoformat(x['due'])<=at+timedelta(days=horizon)
   and ledger.get(x['id'])['state']=='pending' and needs_refresh(x)]
 
