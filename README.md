@@ -1,5 +1,13 @@
 # Threads @1fatherx — annual campaign
 
+## Comment auto replies
+
+`autoresponder.py` replies publicly to new external comments on the owner's own root posts. It randomly selects exactly `DM gw ya kak.` or `DM gw. thanks`, and stores the selected wording with the durable reply receipt. Own comments, hidden comments, comments before the configured cutoff, and comments already answered by the owner are skipped. An ambiguous publish response is held until the visible owner reply reconciles it; it is never blindly retried.
+
+The separate `auto-replies.yml` worker checks periodically (15-minute GitHub timer, subject to scheduling delay), with a request budget and per-run/day reply caps. `AUTO_REPLY_ENABLED` is separate from `PUBLISH_ENABLED`. Reply access currently requires owner reconnection: the existing token was granted posting access, and live comment reads returned HTTP 403. Keep auto replies disabled until the reply read/draft-write checks pass. The video publishing schedule remains active.
+
+Owner consent tooling: `TOOLS/connect_reply_permissions.py prepare`, then `exchange` after consent and `activate` after a successful cloud permission check. Tools live in the active local package, outside this cloud checkout. No plaintext token or app secret is committed.
+
 ## Current owner revision: video only, 28 October 2026
 
 This revision supersedes the image/podcast media mix described below for all future posts. The first 24 scheduled objects and their publication receipts remain unchanged. Starting 29 October 2026, the 1,071 remaining slots use exactly two videos: an actual application screen recording, followed by its matching original application export. No future image or unrelated podcast-practice excerpt is permitted.

@@ -1,0 +1,16 @@
+{
+  "account": "1fatherx",
+  "reply_mode": "public_comment_reply",
+  "starts_at": "2026-10-28T15:01:48.180402+00:00",
+  "max_replies_per_run": 5,
+  "max_replies_per_day": 100,
+  "max_requests_per_run": 50,
+  "max_root_pages": 30,
+  "poll_minutes": 15,
+  "source": "Owner exact templates: DM gw ya kak. | DM gw. thanks",
+  "reply_templates": [
+    "DM gw ya kak.",
+    "DM gw. thanks"
+  ],
+  "template_selection": "random_per_comment"
+}

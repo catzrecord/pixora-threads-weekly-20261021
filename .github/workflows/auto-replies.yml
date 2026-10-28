@@ -1,0 +1,39 @@
+name: Threads comment auto replies
+run-name: Threads auto replies ${{ inputs.mode || 'timer' }}
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        default: check
+        options: [check, scan, run]
+  schedule:
+    - cron: '*/15 * * * *'
+permissions:
+  contents: write
+concurrency:
+  group: pixora-1fatherx-auto-replies
+  cancel-in-progress: false
+jobs:
+  replies:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      THREADS_TOKEN_VAULT_KEY: ${{ secrets.THREADS_TOKEN_VAULT_KEY }}
+      AUTO_REPLY_ENABLED: ${{ vars.AUTO_REPLY_ENABLED }}
+      PERSIST_GIT: '1'
+      MODE: ${{ inputs.mode || 'run' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - run: python -m unittest -v
+        env:
+          PERSIST_GIT: '0'
+      - run: python -u autoresponder.py --mode "$MODE"
