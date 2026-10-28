@@ -2,7 +2,7 @@
   "account": "1fatherx",
   "approved_at": "2026-10-20T13:20:09.548636+00:00",
   "original_posts_sha256": "effa1d388022a798d82523f0a00eaa2efe270bce52e9216b94471dd0794bbc6a",
-  "schedule_sha256": "ba1537fc54391e4d9ec8175277c6e94a7093d388580c6353aed5b7faeb73027a",
+  "schedule_sha256": "450543ba838ce591fa55dd9faae646b4b5824292cc747ea979a9b61d65707a81",
   "method": "Official Threads API",
   "start": "2026-10-21",
   "end": "2027-10-20",
@@ -70,9 +70,11 @@
     "clip_reuse": "Sixty verified new edits rotate across 549 added posts; each post also retains an owner screen recording."
   },
   "video_only_revision": {
-    "revised_at": "2026-10-28T14:12:28.860590+00:00",
+    "revised_at": "2026-10-28T14:42:58.353861+00:00",
     "from_due": "2026-10-29T08:30:00+07:00",
     "instruction": "ok lanjutkan ganti semua gambar ai buatan lo dengan video rekaman layar dan hasilnya juga",
+    "continuation_instruction": "ok lanjutkan dan ganti semua postingan sampai tahun depan nya juga.",
+    "coverage_end": "2027-10-20",
     "required_media_order": [
       "VIDEO",
       "VIDEO"
@@ -110,8 +112,8 @@
     ],
     "generated_images_allowed": false,
     "recording_and_export_must_match": true,
-    "unique_demo_pairs": 4,
-    "unique_source_urls": 2,
+    "unique_demo_pairs": 6,
+    "unique_source_urls": 4,
     "reuse_disclosure": "Verified demo pairs rotate across future slots. Slots are not unique fresh app runs.",
     "rolling_podcast_replacement_disabled": true,
     "pairs": [
@@ -128,10 +130,22 @@
         "result_sha256": "40e3d98ac0091784a49f22c9214e859c90956bc562f3eb03bf6f1a47b1523227"
       },
       {
+        "id": "PANDJI-LOCAL-02",
+        "source_url": "https://www.youtube.com/watch?v=oRWfLs1tISg",
+        "recording_sha256": "2b478d55c1135be3de6b5b11a7f2f89daa9f7b01e6ff517831d9e2ac8134d165",
+        "result_sha256": "95c27c49b5afe93585c14d7c6932df947f3d5397e6dea9c7123e05fc629dd3e3"
+      },
+      {
         "id": "ARI-ARCHIVE-02",
         "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
         "recording_sha256": "402191d52710fd304204d93be4b3850f8bec4b75e7a3d08d6d388173e05e113b",
         "result_sha256": "87135bb1d46d129d32db4e094d59ccd5a8fe57ac1a3981f9f095d35e4ccfb73b"
+      },
+      {
+        "id": "AGAK-LAEN-LOCAL-01",
+        "source_url": "https://www.youtube.com/watch?v=lfCzz_ZtgZU",
+        "recording_sha256": "6c1bd1d6790935d17b89c63d0e46cfc77edf98cf3a83084b6914150f31368996",
+        "result_sha256": "a0930272490b6c3e8dbd1b8ce5f998dced0f44de7148cb5d2dab746b804caaac"
       },
       {
         "id": "ARI-ARCHIVE-03",

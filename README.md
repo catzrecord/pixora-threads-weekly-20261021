@@ -4,6 +4,8 @@
 
 This revision supersedes the image/podcast media mix described below for all future posts. The first 24 scheduled objects and their publication receipts remain unchanged. Starting 29 October 2026, the 1,071 remaining slots use exactly two videos: an actual application screen recording, followed by its matching original application export. No future image or unrelated podcast-practice excerpt is permitted.
 
+The owner's continuation covers every remaining slot through the annual end on 20 October 2027: 192 posts in 2026 and 879 posts in 2027. Six validated demo pairs from four YouTube source URLs rotate across the complete calendar. Three archived app exports have newly recorded previews, and three new local-source app exports have actual audio-subtitle QC, render and screen-capture evidence. The complete owner review and CSV cover all 1,071 slots; these are not 1,071 unique application runs.
+
 `app-demo-pairs.json` records media provenance, source URLs, capture dates, historical-export labels and full-decode evidence. `approval.json` pins each allowed recording/export pair and the complete schedule hash. Pairs rotate across slots; this is not a claim of 1,071 unique fresh app runs. The rolling podcast producer skips paired app-demo posts. Token maintenance, account/quota checks, late-slot skipping and protection against duplicate/ambiguous publication continue.
 
 The owner authorized this replacement and continued publishing. PUBLISH_ENABLED remains false during preparation, and is restored only after the replacement is deployed and verified. Local package, recordings, original exports, preview and QA: `/Users/coong/Documents/Threads-1fatherx-VideoOnly-20261028`.

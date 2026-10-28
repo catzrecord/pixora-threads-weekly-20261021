@@ -68,6 +68,40 @@
     }
   },
   {
+    "id": "PANDJI-LOCAL-02",
+    "title": "Pandji Cerita Suasana Jalanan New York",
+    "source_url": "https://www.youtube.com/watch?v=oRWfLs1tISg",
+    "historical_export": false,
+    "recording_date": "2026-10-28",
+    "validation": "PASS",
+    "workflow": "Manual local excerpt from a previously sourced public video; new actual application subtitle QC and export",
+    "source_start_seconds": 1457.84,
+    "source_end_seconds": 1493.84,
+    "recording": {
+      "type": "VIDEO",
+      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-video-only-20261028/2b478d55c1135be3de6b5b11a7f2f89daa9f7b01e6ff517831d9e2ac8134d165.mp4",
+      "sha256": "2b478d55c1135be3de6b5b11a7f2f89daa9f7b01e6ff517831d9e2ac8134d165",
+      "bytes": 248754,
+      "kind": "owner_screen_recording",
+      "alt_text": "Rekaman layar asli aplikasi saat memutar hasil export: Pandji Cerita Suasana Jalanan New York",
+      "source_url": "https://www.youtube.com/watch?v=oRWfLs1tISg",
+      "local_path": "RECORDINGS/2b478d55c1135be3de6b5b11a7f2f89daa9f7b01e6ff517831d9e2ac8134d165.mp4",
+      "full_decode_verified": true
+    },
+    "result": {
+      "type": "VIDEO",
+      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-video-only-20261028/95c27c49b5afe93585c14d7c6932df947f3d5397e6dea9c7123e05fc629dd3e3.mp4",
+      "sha256": "95c27c49b5afe93585c14d7c6932df947f3d5397e6dea9c7123e05fc629dd3e3",
+      "bytes": 3913666,
+      "kind": "verified_pixora_render",
+      "alt_text": "Hasil export asli aplikasi dengan subtitle audio: Pandji Cerita Suasana Jalanan New York",
+      "source_url": "https://www.youtube.com/watch?v=oRWfLs1tISg",
+      "local_path": "RESULTS/95c27c49b5afe93585c14d7c6932df947f3d5397e6dea9c7123e05fc629dd3e3.mp4",
+      "full_decode_verified": true
+    },
+    "visual_review": "PASS: actual app recording, matching source/title, export hook and subtitle frames inspected."
+  },
+  {
     "id": "ARI-ARCHIVE-02",
     "title": "Prinsip Ari Lasso: Berikan yang Terbaik",
     "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
@@ -96,6 +130,40 @@
       "local_path": "RESULTS/87135bb1d46d129d32db4e094d59ccd5a8fe57ac1a3981f9f095d35e4ccfb73b.mp4",
       "full_decode_verified": true
     }
+  },
+  {
+    "id": "AGAK-LAEN-LOCAL-01",
+    "title": "Ngobrol Serius dengan Pasangan",
+    "source_url": "https://www.youtube.com/watch?v=lfCzz_ZtgZU",
+    "historical_export": false,
+    "recording_date": "2026-10-28",
+    "validation": "PASS",
+    "workflow": "Manual local excerpt from a previously sourced public video; new actual application subtitle QC and export",
+    "source_start_seconds": 3160.94,
+    "source_end_seconds": 3196.94,
+    "recording": {
+      "type": "VIDEO",
+      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-video-only-20261028/6c1bd1d6790935d17b89c63d0e46cfc77edf98cf3a83084b6914150f31368996.mp4",
+      "sha256": "6c1bd1d6790935d17b89c63d0e46cfc77edf98cf3a83084b6914150f31368996",
+      "bytes": 275786,
+      "kind": "owner_screen_recording",
+      "alt_text": "Rekaman layar asli aplikasi saat memutar hasil export: Ngobrol Serius dengan Pasangan",
+      "source_url": "https://www.youtube.com/watch?v=lfCzz_ZtgZU",
+      "local_path": "RECORDINGS/6c1bd1d6790935d17b89c63d0e46cfc77edf98cf3a83084b6914150f31368996.mp4",
+      "full_decode_verified": true
+    },
+    "result": {
+      "type": "VIDEO",
+      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-video-only-20261028/a0930272490b6c3e8dbd1b8ce5f998dced0f44de7148cb5d2dab746b804caaac.mp4",
+      "sha256": "a0930272490b6c3e8dbd1b8ce5f998dced0f44de7148cb5d2dab746b804caaac",
+      "bytes": 2939656,
+      "kind": "verified_pixora_render",
+      "alt_text": "Hasil export asli aplikasi dengan subtitle audio: Ngobrol Serius dengan Pasangan",
+      "source_url": "https://www.youtube.com/watch?v=lfCzz_ZtgZU",
+      "local_path": "RESULTS/a0930272490b6c3e8dbd1b8ce5f998dced0f44de7148cb5d2dab746b804caaac.mp4",
+      "full_decode_verified": true
+    },
+    "visual_review": "PASS: actual app recording, matching source/title, export hook and subtitle frames inspected."
   },
   {
     "id": "ARI-ARCHIVE-03",
