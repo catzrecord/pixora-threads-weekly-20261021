@@ -1,29 +1,35 @@
 name: Threads comment auto replies
-run-name: Threads auto replies ${{ inputs.mode || 'timer' }}
+run-name: Threads auto replies ${{ inputs.mode || 'watch' }}
 on:
   workflow_dispatch:
     inputs:
       mode:
         type: choice
         default: check
-        options: [check, scan, run]
+        options: [check, scan, run, start, watch]
   schedule:
-    - cron: '*/15 * * * *'
+    # A fallback for an interrupted self-dispatch chain; avoid the top of the hour.
+    - cron: '7,22,37,52 * * * *'
 permissions:
   contents: write
+  actions: write
 concurrency:
   group: pixora-1fatherx-auto-replies
   cancel-in-progress: false
 jobs:
   replies:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 25
     env:
       THREADS_TOKEN_VAULT_KEY: ${{ secrets.THREADS_TOKEN_VAULT_KEY }}
       AUTO_REPLY_ENABLED: ${{ vars.AUTO_REPLY_ENABLED }}
       PERSIST_GIT: '1'
-      MODE: ${{ inputs.mode || 'run' }}
+      MODE: ${{ inputs.mode || 'watch' }}
+      GH_TOKEN: ${{ github.token }}
     steps:
+      - name: Record reply cycle start
+        id: cycle
+        run: echo "started_at=$(date +%s)" >> "$GITHUB_OUTPUT"
       - uses: actions/checkout@v4
         with:
           ref: main
@@ -36,4 +42,11 @@ jobs:
       - run: python -m unittest -v
         env:
           PERSIST_GIT: '0'
-      - run: python -u autoresponder.py --mode "$MODE"
+      - name: Check or reply through the official Threads API
+        run: |
+          worker_mode="$MODE"
+          if [ "$MODE" = 'start' ] || [ "$MODE" = 'watch' ]; then worker_mode='run'; fi
+          python -u autoresponder.py --mode "$worker_mode"
+      - name: Continue automatic reply checks
+        if: ${{ always() && !cancelled() && (env.MODE == 'start' || env.MODE == 'watch') && env.AUTO_REPLY_ENABLED == 'true' }}
+        run: python -u reply_clock.py --started-at "${{ steps.cycle.outputs.started_at }}"
