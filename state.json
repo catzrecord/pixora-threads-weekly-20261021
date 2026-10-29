@@ -298,12 +298,13 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DfEUHaLk_67"
     },
     "SIX-027": {
-      "state": "children_created",
+      "state": "container_created",
       "children": [
         "18088708418505784",
         "18088708433505784"
       ],
-      "updated_at": "2026-10-29T13:00:03.975234+00:00"
+      "updated_at": "2026-10-29T13:00:37.070664+00:00",
+      "container_id": "18088708637505784"
     }
   }
 }
