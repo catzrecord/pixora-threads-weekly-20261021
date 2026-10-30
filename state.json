@@ -331,13 +331,15 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DfG46R9CeCK"
     },
     "SIX-030": {
-      "state": "publishing",
+      "state": "published",
       "children": [
         "18088863245505784",
         "18088863248505784"
       ],
-      "updated_at": "2026-10-30T13:00:53.300455+00:00",
-      "container_id": "18088863437505784"
+      "updated_at": "2026-10-30T13:00:58.597785+00:00",
+      "container_id": "18088863437505784",
+      "published_id": "18116899901109723",
+      "permalink": "https://www.threads.com/@1fatherx/post/DfHo-gICDcV"
     }
   }
 }
