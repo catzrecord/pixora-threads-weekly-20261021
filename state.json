@@ -309,13 +309,15 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DfFELsOkb3f"
     },
     "SIX-028": {
-      "state": "publishing",
+      "state": "published",
       "children": [
         "18088796813505784",
         "18088796816505784"
       ],
-      "updated_at": "2026-10-30T01:30:54.474970+00:00",
-      "container_id": "18088796984505784"
+      "updated_at": "2026-10-30T01:30:59.160469+00:00",
+      "container_id": "18088796984505784",
+      "published_id": "18140884183528819",
+      "permalink": "https://www.threads.com/@1fatherx/post/DfGaA7yDZYF"
     }
   }
 }
