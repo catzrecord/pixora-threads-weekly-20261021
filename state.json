@@ -309,12 +309,13 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DfFELsOkb3f"
     },
     "SIX-028": {
-      "state": "children_created",
+      "state": "container_created",
       "children": [
         "18088796813505784",
         "18088796816505784"
       ],
-      "updated_at": "2026-10-30T01:30:05.397951+00:00"
+      "updated_at": "2026-10-30T01:30:37.959015+00:00",
+      "container_id": "18088796984505784"
     }
   }
 }
