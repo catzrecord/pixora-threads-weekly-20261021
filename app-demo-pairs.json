@@ -1,10 +1,10 @@
 [
   {
-    "id": "TIRTA-LOCAL-01-LIME-20261102",
+    "id": "TIRTA-LOCAL-01-LIME-SEQ-20261102",
     "title": "Ditolong Supir Truk Saat Gowes",
     "source_url": "https://www.youtube.com/watch?v=fPQqb_A0cIQ",
     "validation": "PASS",
-    "workflow": "Existing verified source project re-rendered in the current PIXORA app; actual app window playback captured on 2026-11-02.",
+    "workflow": "Existing approved white and lime export played in corrected PIXORA preview; duplicate live hook and caption overlays disabled for baked exports.",
     "source_start_seconds": 163,
     "source_end_seconds": 199,
     "subtitle_corrections": {
@@ -12,7 +12,7 @@
       "Jarek": "Jarak",
       "Sipang-Jomin": "Simpang Jomin"
     },
-    "replaces_pair_id": "TIRTA-LOCAL-01",
+    "replaces_pair_id": "TIRTA-LOCAL-01-LIME-20261102",
     "historical_export": false,
     "historical_source_reused": true,
     "recording_date": "2026-11-02",
@@ -20,13 +20,13 @@
     "style": "reference_lime",
     "recording": {
       "type": "VIDEO",
-      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-lime-20261102/dc3b11838e1e3c6e6724df9caa5da949a242e1ebe7a84b737ca82319c41680c5.mp4",
-      "sha256": "dc3b11838e1e3c6e6724df9caa5da949a242e1ebe7a84b737ca82319c41680c5",
-      "bytes": 765440,
+      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-sequence-20261102/11188c65b129a4df3c1d576fc2baf94eb063f66036d6a2610d1bea6e0074528f.mp4",
+      "sha256": "11188c65b129a4df3c1d576fc2baf94eb063f66036d6a2610d1bea6e0074528f",
+      "bytes": 911680,
       "kind": "owner_screen_recording",
       "alt_text": "Rekaman jendela PIXORA saat memutar export dengan subtitle putih dan lime: Ditolong Supir Truk Saat Gowes",
       "source_url": "https://www.youtube.com/watch?v=fPQqb_A0cIQ",
-      "local_path": "RECORDINGS/dc3b11838e1e3c6e6724df9caa5da949a242e1ebe7a84b737ca82319c41680c5.mp4",
+      "local_path": "RECORDINGS/11188c65b129a4df3c1d576fc2baf94eb063f66036d6a2610d1bea6e0074528f.mp4",
       "full_decode_verified": true
     },
     "result": {
@@ -39,15 +39,19 @@
       "source_url": "https://www.youtube.com/watch?v=fPQqb_A0cIQ",
       "local_path": "EXPORT/5bb3e4e722000f8f0c788acbe888e51291bcc248883bc4c0a16ea2deab0b5355.mp4",
       "full_decode_verified": true
-    }
+    },
+    "project_id": "TIRTA-LOCAL-01",
+    "hook_subtitle_sequence": "Hook ends before white/lime subtitles begin; no duplicate live design overlays",
+    "hook_end_seconds": 2.799999999999997,
+    "first_subtitle_seconds": 2.8
   },
   {
-    "id": "ARI-ARCHIVE-01-LIME-20261102",
+    "id": "ARI-ARCHIVE-01-LIME-SEQ-20261102",
     "title": "Ari Lasso Tetap Tampil Meski Cuma 18 Penonton",
     "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
     "validation": "PASS",
-    "replaces_pair_id": "ARI-ARCHIVE-01",
-    "workflow": "Existing verified source project re-rendered in the current PIXORA app; actual app window playback captured on 2026-11-02.",
+    "replaces_pair_id": "ARI-ARCHIVE-01-LIME-20261102",
+    "workflow": "Existing approved white and lime export played in corrected PIXORA preview; duplicate live hook and caption overlays disabled for baked exports.",
     "historical_export": false,
     "historical_source_reused": true,
     "recording_date": "2026-11-02",
@@ -55,13 +59,13 @@
     "style": "reference_lime",
     "recording": {
       "type": "VIDEO",
-      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-lime-20261102/1a1e34dc4aba11c643457a1b87fcdba9eb14802ca2ea489b308e7ccc555026c3.mp4",
-      "sha256": "1a1e34dc4aba11c643457a1b87fcdba9eb14802ca2ea489b308e7ccc555026c3",
-      "bytes": 436286,
+      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-sequence-20261102/064072b2dd793c256dc1c000a917758d50b5c9dac47ed73a64b1f09217c9d808.mp4",
+      "sha256": "064072b2dd793c256dc1c000a917758d50b5c9dac47ed73a64b1f09217c9d808",
+      "bytes": 440819,
       "kind": "owner_screen_recording",
       "alt_text": "Rekaman jendela PIXORA saat memutar export dengan subtitle putih dan lime: Ari Lasso Tetap Tampil Meski Cuma 18 Penonton",
       "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
-      "local_path": "RECORDINGS/1a1e34dc4aba11c643457a1b87fcdba9eb14802ca2ea489b308e7ccc555026c3.mp4",
+      "local_path": "RECORDINGS/064072b2dd793c256dc1c000a917758d50b5c9dac47ed73a64b1f09217c9d808.mp4",
       "full_decode_verified": true
     },
     "result": {
@@ -74,17 +78,21 @@
       "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
       "local_path": "EXPORT/3f1517ba5fb77d4e7b7f075fb377f7bc37ea3a2cbc6afb5a5d3ba744713bbec2.mp4",
       "full_decode_verified": true
-    }
+    },
+    "project_id": "ARI-ARCHIVE-01",
+    "hook_subtitle_sequence": "Hook ends before white/lime subtitles begin; no duplicate live design overlays",
+    "hook_end_seconds": 4.5,
+    "first_subtitle_seconds": 4.7
   },
   {
-    "id": "PANDJI-LOCAL-02-LIME-20261102",
+    "id": "PANDJI-LOCAL-02-LIME-SEQ-20261102",
     "title": "Pandji Cerita Suasana Jalanan New York",
     "source_url": "https://www.youtube.com/watch?v=oRWfLs1tISg",
     "validation": "PASS",
-    "workflow": "Existing verified source project re-rendered in the current PIXORA app; actual app window playback captured on 2026-11-02.",
+    "workflow": "Existing approved white and lime export played in corrected PIXORA preview; duplicate live hook and caption overlays disabled for baked exports.",
     "source_start_seconds": 1457.84,
     "source_end_seconds": 1493.84,
-    "replaces_pair_id": "PANDJI-LOCAL-02",
+    "replaces_pair_id": "PANDJI-LOCAL-02-LIME-20261102",
     "historical_export": false,
     "historical_source_reused": true,
     "recording_date": "2026-11-02",
@@ -92,13 +100,13 @@
     "style": "reference_lime",
     "recording": {
       "type": "VIDEO",
-      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-lime-20261102/651f6395bd6190bf5e4ba1a09f69b6f2e1d7855ff65b6578e92da4484ce942c5.mp4",
-      "sha256": "651f6395bd6190bf5e4ba1a09f69b6f2e1d7855ff65b6578e92da4484ce942c5",
-      "bytes": 399349,
+      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-sequence-20261102/107ed6553e93456f4ab14c565e65d46508950f9879d531cadfb116790ade8196.mp4",
+      "sha256": "107ed6553e93456f4ab14c565e65d46508950f9879d531cadfb116790ade8196",
+      "bytes": 402220,
       "kind": "owner_screen_recording",
       "alt_text": "Rekaman jendela PIXORA saat memutar export dengan subtitle putih dan lime: Pandji Cerita Suasana Jalanan New York",
       "source_url": "https://www.youtube.com/watch?v=oRWfLs1tISg",
-      "local_path": "RECORDINGS/651f6395bd6190bf5e4ba1a09f69b6f2e1d7855ff65b6578e92da4484ce942c5.mp4",
+      "local_path": "RECORDINGS/107ed6553e93456f4ab14c565e65d46508950f9879d531cadfb116790ade8196.mp4",
       "full_decode_verified": true
     },
     "result": {
@@ -111,15 +119,19 @@
       "source_url": "https://www.youtube.com/watch?v=oRWfLs1tISg",
       "local_path": "EXPORT/b843c45699037761b959612bbe98849090f50a8d1395ae8c8b2ba90a0c6280a9.mp4",
       "full_decode_verified": true
-    }
+    },
+    "project_id": "PANDJI-LOCAL-02",
+    "hook_subtitle_sequence": "Hook ends before white/lime subtitles begin; no duplicate live design overlays",
+    "hook_end_seconds": 3,
+    "first_subtitle_seconds": 3.08
   },
   {
-    "id": "ARI-ARCHIVE-02-LIME-20261102",
+    "id": "ARI-ARCHIVE-02-LIME-SEQ-20261102",
     "title": "Prinsip Ari Lasso: Berikan yang Terbaik",
     "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
     "validation": "PASS",
-    "replaces_pair_id": "ARI-ARCHIVE-02",
-    "workflow": "Existing verified source project re-rendered in the current PIXORA app; actual app window playback captured on 2026-11-02.",
+    "replaces_pair_id": "ARI-ARCHIVE-02-LIME-20261102",
+    "workflow": "Existing approved white and lime export played in corrected PIXORA preview; duplicate live hook and caption overlays disabled for baked exports.",
     "historical_export": false,
     "historical_source_reused": true,
     "recording_date": "2026-11-02",
@@ -127,13 +139,13 @@
     "style": "reference_lime",
     "recording": {
       "type": "VIDEO",
-      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-lime-20261102/1ebaa987a33c2336517b358e057c5972d1199b81bf64c2d5903d1b7305c4e30f.mp4",
-      "sha256": "1ebaa987a33c2336517b358e057c5972d1199b81bf64c2d5903d1b7305c4e30f",
-      "bytes": 404696,
+      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-sequence-20261102/69e63cc1d4bbeaba292765fb5c50bdacd729981c6f127078c5d19f951c1ed940.mp4",
+      "sha256": "69e63cc1d4bbeaba292765fb5c50bdacd729981c6f127078c5d19f951c1ed940",
+      "bytes": 407398,
       "kind": "owner_screen_recording",
       "alt_text": "Rekaman jendela PIXORA saat memutar export dengan subtitle putih dan lime: Prinsip Ari Lasso: Berikan yang Terbaik",
       "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
-      "local_path": "RECORDINGS/1ebaa987a33c2336517b358e057c5972d1199b81bf64c2d5903d1b7305c4e30f.mp4",
+      "local_path": "RECORDINGS/69e63cc1d4bbeaba292765fb5c50bdacd729981c6f127078c5d19f951c1ed940.mp4",
       "full_decode_verified": true
     },
     "result": {
@@ -146,17 +158,21 @@
       "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
       "local_path": "EXPORT/5ac4730e1597532ee3a0b777bc639e486395dd433c4d46676f25c3b5060d4499.mp4",
       "full_decode_verified": true
-    }
+    },
+    "project_id": "ARI-ARCHIVE-02",
+    "hook_subtitle_sequence": "Hook ends before white/lime subtitles begin; no duplicate live design overlays",
+    "hook_end_seconds": 4.399999999999864,
+    "first_subtitle_seconds": 4.4
   },
   {
-    "id": "AGAK-LAEN-LOCAL-01-LIME-20261102",
+    "id": "AGAK-LAEN-LOCAL-01-LIME-SEQ-20261102",
     "title": "Ngobrol Serius dengan Pasangan",
     "source_url": "https://www.youtube.com/watch?v=lfCzz_ZtgZU",
     "validation": "PASS",
-    "workflow": "Existing verified source project re-rendered in the current PIXORA app; actual app window playback captured on 2026-11-02.",
+    "workflow": "Existing approved white and lime export played in corrected PIXORA preview; duplicate live hook and caption overlays disabled for baked exports.",
     "source_start_seconds": 3160.94,
     "source_end_seconds": 3196.94,
-    "replaces_pair_id": "AGAK-LAEN-LOCAL-01",
+    "replaces_pair_id": "AGAK-LAEN-LOCAL-01-LIME-20261102",
     "historical_export": false,
     "historical_source_reused": true,
     "recording_date": "2026-11-02",
@@ -164,13 +180,13 @@
     "style": "reference_lime",
     "recording": {
       "type": "VIDEO",
-      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-lime-20261102/a2492cb33ff3253740ce51ba1af846b85d164dfaf6daf7684c14fa70c1ba917d.mp4",
-      "sha256": "a2492cb33ff3253740ce51ba1af846b85d164dfaf6daf7684c14fa70c1ba917d",
-      "bytes": 485762,
+      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-sequence-20261102/bb5045c8e5420488f7cf3fb2a1436fc9df634322a39fb2851a240b54629223ac.mp4",
+      "sha256": "bb5045c8e5420488f7cf3fb2a1436fc9df634322a39fb2851a240b54629223ac",
+      "bytes": 476044,
       "kind": "owner_screen_recording",
       "alt_text": "Rekaman jendela PIXORA saat memutar export dengan subtitle putih dan lime: Ngobrol Serius dengan Pasangan",
       "source_url": "https://www.youtube.com/watch?v=lfCzz_ZtgZU",
-      "local_path": "RECORDINGS/a2492cb33ff3253740ce51ba1af846b85d164dfaf6daf7684c14fa70c1ba917d.mp4",
+      "local_path": "RECORDINGS/bb5045c8e5420488f7cf3fb2a1436fc9df634322a39fb2851a240b54629223ac.mp4",
       "full_decode_verified": true
     },
     "result": {
@@ -183,15 +199,19 @@
       "source_url": "https://www.youtube.com/watch?v=lfCzz_ZtgZU",
       "local_path": "EXPORT/21bd25fdc3a08ef3933003b430a756e37f0810fb8baec3c4e807e0508e847218.mp4",
       "full_decode_verified": true
-    }
+    },
+    "project_id": "AGAK-LAEN-LOCAL-01",
+    "hook_subtitle_sequence": "Hook ends before white/lime subtitles begin; no duplicate live design overlays",
+    "hook_end_seconds": 3,
+    "first_subtitle_seconds": 3
   },
   {
-    "id": "ARI-ARCHIVE-03-LIME-20261102",
+    "id": "ARI-ARCHIVE-03-LIME-SEQ-20261102",
     "title": "Foto Bareng Ahmad Dhani? Jangan Tersinggung",
     "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
     "validation": "PASS",
-    "replaces_pair_id": "ARI-ARCHIVE-03",
-    "workflow": "Existing verified source project re-rendered in the current PIXORA app; actual app window playback captured on 2026-11-02.",
+    "replaces_pair_id": "ARI-ARCHIVE-03-LIME-20261102",
+    "workflow": "Existing approved white and lime export played in corrected PIXORA preview; duplicate live hook and caption overlays disabled for baked exports.",
     "historical_export": false,
     "historical_source_reused": true,
     "recording_date": "2026-11-02",
@@ -199,13 +219,13 @@
     "style": "reference_lime",
     "recording": {
       "type": "VIDEO",
-      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-lime-20261102/1f2c4851c17a93534b58ba2ce7b5059a0388b3be922a3161a06c253bfbad350c.mp4",
-      "sha256": "1f2c4851c17a93534b58ba2ce7b5059a0388b3be922a3161a06c253bfbad350c",
-      "bytes": 425529,
+      "url": "https://github.com/catzrecord/pixora-threads-weekly-20261021/releases/download/app-demo-sequence-20261102/f3f1ec0765c15aa32f7b74588347af0172f3f86bb400b690fb1367db23033b12.mp4",
+      "sha256": "f3f1ec0765c15aa32f7b74588347af0172f3f86bb400b690fb1367db23033b12",
+      "bytes": 449704,
       "kind": "owner_screen_recording",
       "alt_text": "Rekaman jendela PIXORA saat memutar export dengan subtitle putih dan lime: Foto Bareng Ahmad Dhani? Jangan Tersinggung",
       "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
-      "local_path": "RECORDINGS/1f2c4851c17a93534b58ba2ce7b5059a0388b3be922a3161a06c253bfbad350c.mp4",
+      "local_path": "RECORDINGS/f3f1ec0765c15aa32f7b74588347af0172f3f86bb400b690fb1367db23033b12.mp4",
       "full_decode_verified": true
     },
     "result": {
@@ -218,6 +238,10 @@
       "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
       "local_path": "EXPORT/b23040d10669831a06f67e6a1e87925a820fc9e4e76adb79d34d42579e8d47a1.mp4",
       "full_decode_verified": true
-    }
+    },
+    "project_id": "ARI-ARCHIVE-03",
+    "hook_subtitle_sequence": "Hook ends before white/lime subtitles begin; no duplicate live design overlays",
+    "hook_end_seconds": 4.300000000000182,
+    "first_subtitle_seconds": 4.3
   }
 ]

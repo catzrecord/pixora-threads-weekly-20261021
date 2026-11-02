@@ -2,7 +2,7 @@
   "account": "1fatherx",
   "approved_at": "2026-10-20T13:20:09.548636+00:00",
   "original_posts_sha256": "effa1d388022a798d82523f0a00eaa2efe270bce52e9216b94471dd0794bbc6a",
-  "schedule_sha256": "798d5d27d33813cc9c9c1e9816ef37af3136a71f0395b6a895a408fa8822125a",
+  "schedule_sha256": "3824b73aa2219a8e686611a5d8212fdd1dbaa69a1fab696fe07a963769869867",
   "method": "Official Threads API",
   "start": "2026-10-21",
   "end": "2027-10-20",
@@ -194,6 +194,48 @@
         "recording_sha256": "1f2c4851c17a93534b58ba2ce7b5059a0388b3be922a3161a06c253bfbad350c",
         "result_sha256": "b23040d10669831a06f67e6a1e87925a820fc9e4e76adb79d34d42579e8d47a1",
         "style": "reference_lime"
+      },
+      {
+        "id": "TIRTA-LOCAL-01-LIME-SEQ-20261102",
+        "source_url": "https://www.youtube.com/watch?v=fPQqb_A0cIQ",
+        "recording_sha256": "11188c65b129a4df3c1d576fc2baf94eb063f66036d6a2610d1bea6e0074528f",
+        "result_sha256": "5bb3e4e722000f8f0c788acbe888e51291bcc248883bc4c0a16ea2deab0b5355",
+        "style": "reference_lime"
+      },
+      {
+        "id": "ARI-ARCHIVE-01-LIME-SEQ-20261102",
+        "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
+        "recording_sha256": "064072b2dd793c256dc1c000a917758d50b5c9dac47ed73a64b1f09217c9d808",
+        "result_sha256": "3f1517ba5fb77d4e7b7f075fb377f7bc37ea3a2cbc6afb5a5d3ba744713bbec2",
+        "style": "reference_lime"
+      },
+      {
+        "id": "PANDJI-LOCAL-02-LIME-SEQ-20261102",
+        "source_url": "https://www.youtube.com/watch?v=oRWfLs1tISg",
+        "recording_sha256": "107ed6553e93456f4ab14c565e65d46508950f9879d531cadfb116790ade8196",
+        "result_sha256": "b843c45699037761b959612bbe98849090f50a8d1395ae8c8b2ba90a0c6280a9",
+        "style": "reference_lime"
+      },
+      {
+        "id": "ARI-ARCHIVE-02-LIME-SEQ-20261102",
+        "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
+        "recording_sha256": "69e63cc1d4bbeaba292765fb5c50bdacd729981c6f127078c5d19f951c1ed940",
+        "result_sha256": "5ac4730e1597532ee3a0b777bc639e486395dd433c4d46676f25c3b5060d4499",
+        "style": "reference_lime"
+      },
+      {
+        "id": "AGAK-LAEN-LOCAL-01-LIME-SEQ-20261102",
+        "source_url": "https://www.youtube.com/watch?v=lfCzz_ZtgZU",
+        "recording_sha256": "bb5045c8e5420488f7cf3fb2a1436fc9df634322a39fb2851a240b54629223ac",
+        "result_sha256": "21bd25fdc3a08ef3933003b430a756e37f0810fb8baec3c4e807e0508e847218",
+        "style": "reference_lime"
+      },
+      {
+        "id": "ARI-ARCHIVE-03-LIME-SEQ-20261102",
+        "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
+        "recording_sha256": "f3f1ec0765c15aa32f7b74588347af0172f3f86bb400b690fb1367db23033b12",
+        "result_sha256": "b23040d10669831a06f67e6a1e87925a820fc9e4e76adb79d34d42579e8d47a1",
+        "style": "reference_lime"
       }
     ]
   },
@@ -211,5 +253,20 @@
     "source_reuse_disclosed": true,
     "recording_method": "Actual PIXORA window capture via CDP during real-time playback",
     "previous_schedule_sha256": "450543ba838ce591fa55dd9faae646b4b5824292cc747ea979a9b61d65707a81"
+  },
+  "hook_sequence_revision": {
+    "revised_at": "2026-11-02T05:11:28.192271+00:00",
+    "instruction": "screen recorder hook dan subtittle masih tabrakan!!! harusnya hooh hilang dan subtittle masuk!!!",
+    "style": "reference_lime",
+    "text_color": "#FFFFFF",
+    "active_word_color": "#CBFF00",
+    "changed_future_jobs": 1058,
+    "cutoff_utc": "2026-11-02T05:11:28.183118+00:00",
+    "first_due": "2026-11-02T13:00:00+07:00",
+    "last_due": "2027-10-20T20:00:00+07:00",
+    "new_pairs": 6,
+    "source_reuse_disclosed": true,
+    "recording_method": "Actual PIXORA window capture via CDP during real-time playback",
+    "previous_schedule_sha256": "798d5d27d33813cc9c9c1e9816ef37af3136a71f0395b6a895a408fa8822125a"
   }
 }
