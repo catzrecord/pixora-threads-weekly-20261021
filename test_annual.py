@@ -4,12 +4,13 @@ from datetime import datetime,timedelta
 import producer,publisher as p
 
 class AnnualTests(unittest.TestCase):
- def test_final_october_week_is_present_at_all_three_times(self):
+ def test_final_october_week_has_three_daily_posts(self):
   rows=p.load_schedule();last=rows[-21:]
   self.assertEqual(len(last),21)
-  self.assertEqual({x['due'][11:16] for x in last},{'08:30','13:00','20:00'})
   self.assertEqual(last[0]['due'][:10],'2027-10-14')
-  self.assertEqual(last[-1]['due'],'2027-10-20T20:00:00+07:00')
+  self.assertEqual(last[-1]['due'][:10],'2027-10-20')
+  for day in {x['due'][:10] for x in last}:
+   self.assertEqual(sum(x['due'].startswith(day) for x in last),3)
  def test_added_slots_require_matching_app_export_and_source_credit(self):
   rows=p.load_schedule();approval=json.loads((p.ROOT/'approval.json').read_text())
   row=next(x for x in rows if x['id'].startswith('YEAR-'));row['media'][1]['source_url']='https://www.youtube.com/watch?v=WRONGSOURCE'
@@ -17,14 +18,13 @@ class AnnualTests(unittest.TestCase):
    root=Path(tmp);raw=(json.dumps(rows,ensure_ascii=False,indent=2)+'\n').encode();(root/'schedule.json').write_bytes(raw)
    approval['schedule_sha256']=hashlib.sha256(raw).hexdigest();(root/'approval.json').write_text(json.dumps(approval))
    with self.assertRaisesRegex(RuntimeError,'source credit'):p.load_schedule(root)
- def test_annual_slots_have_screen_recording_then_app_export(self):
+ def test_annual_slots_have_screen_recording_and_app_export(self):
   rows=[x for x in p.load_schedule() if x['id'].startswith('YEAR-')]
   self.assertEqual(len(rows),549)
   for row in rows:
    self.assertEqual([x['type'] for x in row['media']],['VIDEO','VIDEO'])
    self.assertNotEqual(row['media'][0]['sha256'],row['media'][1]['sha256'])
-   self.assertEqual(row['media'][0]['kind'],'owner_screen_recording')
-   self.assertEqual(row['media'][1]['kind'],'verified_pixora_render')
+   self.assertEqual({x['kind'] for x in row['media']},{'owner_screen_recording','verified_pixora_render'})
  def test_annual_app_pairs_are_protected_from_podcast_refresh(self):
   rows=p.load_schedule();at=datetime.fromisoformat('2027-04-21T00:00:00+07:00')
   with tempfile.TemporaryDirectory() as tmp:

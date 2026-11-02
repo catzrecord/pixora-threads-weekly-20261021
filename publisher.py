@@ -25,9 +25,12 @@ def validate_demo_pair(post,revision):
  media=post['media'];pair=next((x for x in revision['pairs'] if x['id']==post.get('app_demo_pair_id')),None)
  if not pair or [x['type'] for x in media]!=['VIDEO','VIDEO']:
   raise RuntimeError('Video-only post requires a screen recording and application export')
- if [x.get('kind') for x in media]!=['owner_screen_recording','verified_pixora_render']:
-  raise RuntimeError('Video-only post requires genuine application media')
- if [x.get('sha256') for x in media]!=[pair['recording_sha256'],pair['result_sha256']] or media[0]['sha256']==media[1]['sha256']:
+ kinds=[x.get('kind') for x in media]
+ expected=['owner_screen_recording','verified_pixora_render']
+ if kinds!=expected and not (pair.get('allow_result_first') is True and kinds==expected[::-1]):
+  raise RuntimeError('Video-only post requires genuine application media in an approved order')
+ hashes={x['kind']:x.get('sha256') for x in media}
+ if hashes!={'owner_screen_recording':pair['recording_sha256'],'verified_pixora_render':pair['result_sha256']} or media[0]['sha256']==media[1]['sha256']:
   raise RuntimeError('Screen recording and application export do not match approved pair')
  if any(x.get('source_url')!=pair['source_url'] for x in media) or pair['source_url'] not in post['text']:
   raise RuntimeError('Application demo source credit does not match approved pair')
@@ -57,8 +60,29 @@ def load_schedule(root=ROOT):
  posts=json.loads(raw)
  days=SCOPES.get(approval.get('end'))
  if not days or len(posts)!=days*3 or approval['account']!='1fatherx' or approval['start']!='2026-10-21':raise RuntimeError('Unexpected campaign scope')
- expected={(CAMPAIGN_START+timedelta(days=d)).date().isoformat()+'T'+t+':00+07:00' for d in range(days) for t in ('08:30','13:00','20:00')}
- if {p['due'] for p in posts}!=expected or len({p['id'] for p in posts})!=days*3:raise RuntimeError('Missing or duplicate campaign slot')
+ policy=approval.get('randomized_schedule_revision')
+ if policy:
+  expected_days={(CAMPAIGN_START+timedelta(days=d)).date().isoformat() for d in range(days)}
+  if {p['due'][:10] for p in posts}!=expected_days or len({p['id'] for p in posts})!=days*3 or len({p['due'] for p in posts})!=days*3:
+   raise RuntimeError('Missing or duplicate campaign slot')
+  preserved=policy['preserved_job_times']
+  for date in sorted(expected_days):
+   daily=sorted((p for p in posts if p['due'][:10]==date),key=lambda p:p['due'])
+   if len(daily)!=3:raise RuntimeError('Each campaign day requires three posts')
+   for slot,p in enumerate(daily):
+    dt=datetime.fromisoformat(p['due'])
+    if dt.utcoffset()!=timedelta(hours=7) or dt.second or dt.microsecond:raise RuntimeError('Invalid local publication time')
+    if p['id'] in preserved:
+     if p['due']!=preserved[p['id']]:raise RuntimeError('Historical publication time changed')
+    elif p['due']<policy['from_due']:
+     raise RuntimeError('Unapproved historical slot')
+    else:
+     lo,hi=policy['windows_wib'][slot]
+     if not lo<=p['due'][11:16]<=hi:raise RuntimeError('Random publication time outside approved window')
+  if not set(preserved).issubset({p['id'] for p in posts}):raise RuntimeError('Historical publication missing')
+ else:
+  expected={(CAMPAIGN_START+timedelta(days=d)).date().isoformat()+'T'+t+':00+07:00' for d in range(days) for t in ('08:30','13:00','20:00')}
+  if {p['due'] for p in posts}!=expected or len({p['id'] for p in posts})!=days*3:raise RuntimeError('Missing or duplicate campaign slot')
  if posts!=sorted(posts,key=lambda p:p['due']):raise RuntimeError('Schedule is not chronological')
  demo_policy=approval.get('owner_screen_recording_revision')
  for p in posts:

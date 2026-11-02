@@ -15,8 +15,7 @@ on:
         required: false
   schedule:
     # WIB = UTC+7. Retry windows prevent a missed minute from losing a post.
-    - cron: '30,40,50 1 * * *'
-    - cron: '0,10,20,30 6,13 * * *'
+    - cron: '*/15 1-2,6-8,13-14 * * *'
     - cron: '17 14 * * *'
 
 permissions:

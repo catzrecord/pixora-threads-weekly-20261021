@@ -15,11 +15,8 @@ async function run({authorization,query,env=process.env,at=new Date(),fetcher=fe
  if(!authorized(authorization,env.CRON_SECRET))return {status:401,body:{state:'unauthorized'}};
  const slot=SLOTS[String(query.slot)];
  if(!slot)return {status:400,body:{state:'invalid_slot'}};
- const date=localDate(at),due=`${date}T${slot}:00+07:00`;
+ const date=localDate(at);let due=`${date}T${slot}:00+07:00`;
  if(date<'2026-10-21'||date>'2027-10-20')return {status:200,body:{state:'outside_approved_campaign'}};
- const remaining=(new Date(due)-at)/1000;
- if(remaining>10800)return {status:200,body:{state:'too_early',due}};
- if(remaining< -1800)return {status:200,body:{state:'too_late',due}};
  if(!env.GITHUB_DISPATCH_TOKEN)throw Error('Clock credential is not configured');
  async function github(path,method='GET',body){
   const response=await fetcher(`https://api.github.com/repos/${REPO}/${path}`,{method,
@@ -42,6 +39,17 @@ async function run({authorization,query,env=process.env,at=new Date(),fetcher=fe
  if(approval.account!=='1fatherx'||approval.start!=='2026-10-21'||!days||schedule.length!==days*3||
   createHash('sha256').update(rawSchedule).digest('hex')!==approval.schedule_sha256)throw Error('Approved campaign verification failed');
  if(date>approval.end)return {status:200,body:{state:'outside_approved_campaign'}};
+ if(approval.randomized_schedule_revision){
+  const daily=schedule.filter(p=>p.due.startsWith(date+'T')).sort((a,b)=>a.due.localeCompare(b.due));
+  if(daily.length!==3||new Set(daily.map(p=>p.due)).size!==3)throw Error('Approved day is missing or duplicated');
+  const index=Object.keys(SLOTS).sort((a,b)=>Number(a)-Number(b)).indexOf(String(query.slot));
+  due=daily[index].due;
+  const windows=approval.randomized_schedule_revision.windows_wib;
+  if(!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:00\+07:00$/.test(due)||due.slice(11,16)<windows[index][0]||due.slice(11,16)>windows[index][1])throw Error('Approved publication time outside random window');
+ }
+ const remaining=(new Date(due)-at)/1000;
+ if(remaining>10800)return {status:200,body:{state:'too_early',due}};
+ if(remaining< -1800)return {status:200,body:{state:'too_late',due}};
  if(enabled.value!=='true')return {status:200,body:{state:'publisher_disabled',due}};
  const matching=schedule.filter(p=>p.due===due);
  if(matching.length!==1)throw Error('Approved slot is missing or duplicated');

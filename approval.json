@@ -2,22 +2,18 @@
   "account": "1fatherx",
   "approved_at": "2026-10-20T13:20:09.548636+00:00",
   "original_posts_sha256": "effa1d388022a798d82523f0a00eaa2efe270bce52e9216b94471dd0794bbc6a",
-  "schedule_sha256": "3824b73aa2219a8e686611a5d8212fdd1dbaa69a1fab696fe07a963769869867",
+  "schedule_sha256": "19cffec22db810d26db4b8441920e672f44c78a75f8ff1f96e145116e806a305",
   "method": "Official Threads API",
   "start": "2026-10-21",
   "end": "2027-10-20",
-  "previous_schedule_sha256": "f044f772c94f7345acd475d0def233292d115550a4a136a0c17f4123df5d8c53",
+  "previous_schedule_sha256": "3824b73aa2219a8e686611a5d8212fdd1dbaa69a1fab696fe07a963769869867",
   "revised_posts_sha256": "84f65251baca3e54938eceb851f8c42e73873174bca56c8b5719e141a6f52bf5",
   "copy_revision": "brandfree-six-month-v1",
   "copy_revised_at": "2026-10-21T08:42:36.938624+00:00",
   "owner_revision_instruction": "aku mau postingan di threadsnya kata2nya seperti disitu, nggak usah kasih pixora dsb!!! kamu bisa revisi semuanya?",
   "posts": 1095,
   "posts_per_day": 3,
-  "times_wib": [
-    "08:30",
-    "13:00",
-    "20:00"
-  ],
+  "times_wib": "Randomized daily; see randomized_schedule_revision.windows_wib",
   "extended_at": "2026-10-23T06:05:07.300581+00:00",
   "owner_extension_instruction": "sekarang lanjutkan jadwal threads supaya sampai 1 tahun dari pertama kali posting, ambil podcast2 yang viral, dokter tirta dsb politik juga banyakin porsinya, lo harus search dan pastikan videonya sudah teredit",
   "rolling_media_authorized": true,
@@ -236,6 +232,168 @@
         "recording_sha256": "f3f1ec0765c15aa32f7b74588347af0172f3f86bb400b690fb1367db23033b12",
         "result_sha256": "b23040d10669831a06f67e6a1e87925a820fc9e4e76adb79d34d42579e8d47a1",
         "style": "reference_lime"
+      },
+      {
+        "id": "TIRTA-LOCAL-01-AUDIO-20261102",
+        "source_url": "https://www.youtube.com/watch?v=fPQqb_A0cIQ",
+        "recording_sha256": "7b8e91023fcc2b18dfb98ed7d9bcdded5127e2307db0322e665486bb21db0b2c",
+        "result_sha256": "5bb3e4e722000f8f0c788acbe888e51291bcc248883bc4c0a16ea2deab0b5355",
+        "style": "reference_lime",
+        "allow_result_first": true,
+        "recording_audio_verified": true
+      },
+      {
+        "id": "ARI-ARCHIVE-01-AUDIO-20261102",
+        "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
+        "recording_sha256": "90e6f9c0d779c871500dcc7e6e734589818da2aed19a4f517ae0ca0832cf5d4d",
+        "result_sha256": "3f1517ba5fb77d4e7b7f075fb377f7bc37ea3a2cbc6afb5a5d3ba744713bbec2",
+        "style": "reference_lime",
+        "allow_result_first": true,
+        "recording_audio_verified": true
+      },
+      {
+        "id": "PANDJI-LOCAL-02-AUDIO-20261102",
+        "source_url": "https://www.youtube.com/watch?v=oRWfLs1tISg",
+        "recording_sha256": "64b2dabdd125e037e6d5eef45f3155d42aa92849636a0a9744333a153e24cd34",
+        "result_sha256": "b843c45699037761b959612bbe98849090f50a8d1395ae8c8b2ba90a0c6280a9",
+        "style": "reference_lime",
+        "allow_result_first": true,
+        "recording_audio_verified": true
+      },
+      {
+        "id": "ARI-ARCHIVE-02-AUDIO-20261102",
+        "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
+        "recording_sha256": "b663e36d2ad50f3422fb4cd62d933aaaa0e30fa7436a15efb52b3981844c1531",
+        "result_sha256": "5ac4730e1597532ee3a0b777bc639e486395dd433c4d46676f25c3b5060d4499",
+        "style": "reference_lime",
+        "allow_result_first": true,
+        "recording_audio_verified": true
+      },
+      {
+        "id": "AGAK-LAEN-LOCAL-01-AUDIO-20261102",
+        "source_url": "https://www.youtube.com/watch?v=lfCzz_ZtgZU",
+        "recording_sha256": "cdab4a49799c043cae4a625e87b328f94246e08420accffd7c47ed675f5c4789",
+        "result_sha256": "21bd25fdc3a08ef3933003b430a756e37f0810fb8baec3c4e807e0508e847218",
+        "style": "reference_lime",
+        "allow_result_first": true,
+        "recording_audio_verified": true
+      },
+      {
+        "id": "ARI-ARCHIVE-03-AUDIO-20261102",
+        "source_url": "https://www.youtube.com/watch?v=u8UJxnDveeQ",
+        "recording_sha256": "478132b7c820ef9df5ed39d44ddf2f27d50778b43dd710724a41d554596aace4",
+        "result_sha256": "b23040d10669831a06f67e6a1e87925a820fc9e4e76adb79d34d42579e8d47a1",
+        "style": "reference_lime",
+        "allow_result_first": true,
+        "recording_audio_verified": true
+      },
+      {
+        "id": "POLITIK-JdrJRESMaHU-01-AUDIO-20261102",
+        "source_url": "https://www.youtube.com/watch?v=JdrJRESMaHU",
+        "recording_sha256": "2f58c2ff8a34d28c3c2c4995edc30e48c93f99bb690be92427c9fb1de9ed31c9",
+        "result_sha256": "675ff8572fafa35fd5d9dc23cc7fd981bd5d30351891d9ccf9c0defa9a933348",
+        "style": "reference_lime",
+        "allow_result_first": true,
+        "recording_audio_verified": true
+      },
+      {
+        "id": "POLITIK-zJH7SMhB32w-01-AUDIO-20261102",
+        "source_url": "https://www.youtube.com/watch?v=zJH7SMhB32w",
+        "recording_sha256": "bb0a39637d4327f24b2d95620d92d70a83f14d795347ee86b5e654a11fb15165",
+        "result_sha256": "43363da04b8935b512621fb3339b5ccad06e88990e04bbeb6178bd9d4a740f10",
+        "style": "reference_lime",
+        "allow_result_first": true,
+        "recording_audio_verified": true
+      },
+      {
+        "id": "POLITIK-JVJ_HYiTNdg-01-AUDIO-20261102",
+        "source_url": "https://www.youtube.com/watch?v=JVJ_HYiTNdg",
+        "recording_sha256": "c8f057d5d89f8a17c42a0301fe1e55250243b8891230b31bc9da6aada4c603c8",
+        "result_sha256": "508ce9712b9a308c13f1f12845319449e8d3723d347ef6f1083ccf90d6c3609e",
+        "style": "reference_lime",
+        "allow_result_first": true,
+        "recording_audio_verified": true
+      },
+      {
+        "id": "POLITIK-Yw1Ivy1VqUo-01-AUDIO-20261102",
+        "source_url": "https://www.youtube.com/watch?v=Yw1Ivy1VqUo",
+        "recording_sha256": "b385481a1f83a68f3a5ceabf6907d45d2e2eeec5ddd865c96f124013944dbed0",
+        "result_sha256": "3a8633f7f296fd3de0b9d8846053050b05df1a154c2e6657b793d3804e291d13",
+        "style": "reference_lime",
+        "allow_result_first": true,
+        "recording_audio_verified": true
+      },
+      {
+        "id": "POLITIK-4Z5vtMoiXIM-01-AUDIO-20261102",
+        "source_url": "https://www.youtube.com/watch?v=4Z5vtMoiXIM",
+        "recording_sha256": "d71b366cd2b04b7677a35e29de8f6349b613c1a3fa8a3986d85c717bdf807d4c",
+        "result_sha256": "72f5b1babf659b06952efa75de594559dbda5147839f4424820df6e2dd25996a",
+        "style": "reference_lime",
+        "allow_result_first": true,
+        "recording_audio_verified": true
+      },
+      {
+        "id": "POLITIK-cmRpBA2NxqM-01-AUDIO-20261102",
+        "source_url": "https://www.youtube.com/watch?v=cmRpBA2NxqM",
+        "recording_sha256": "5d4b62a2739aaf6717192eeb3e20a0d30664af339bc2532146c02de46ae81f79",
+        "result_sha256": "04bf089b0bf72ea1acfa00e90f8e1bee21d4c3e1697615dda9c3c95f0ad1bbce",
+        "style": "reference_lime",
+        "allow_result_first": true,
+        "recording_audio_verified": true
+      },
+      {
+        "id": "POLITIK-lpQrUTWXHZU-01-AUDIO-20261102",
+        "source_url": "https://www.youtube.com/watch?v=lpQrUTWXHZU",
+        "recording_sha256": "7b147c420efffb97201c84f16ba8ab9d7c49cdbdaea4956ef73a49c9d0b5e23b",
+        "result_sha256": "adf514bb2d6b9573fd59f9672ddcf78bbfbab36f3f3cddf3d68bc7b892a98f43",
+        "style": "reference_lime",
+        "allow_result_first": true,
+        "recording_audio_verified": true
+      },
+      {
+        "id": "POLITIK-Seo2OD4AVl0-01-AUDIO-20261102",
+        "source_url": "https://www.youtube.com/watch?v=Seo2OD4AVl0",
+        "recording_sha256": "00ec3c682804e2ff2c1d7e8128c9848d7342589f0ba0c39da4ab19bec866c36e",
+        "result_sha256": "d28fb203cacba31e2d35c028918a8f45c83561ac832c3e4cb903bc385ca5f64c",
+        "style": "reference_lime",
+        "allow_result_first": true,
+        "recording_audio_verified": true
+      },
+      {
+        "id": "POLITIK-lgULm1QV7lI-01-AUDIO-20261102",
+        "source_url": "https://www.youtube.com/watch?v=lgULm1QV7lI",
+        "recording_sha256": "77fb6d33ec5f0a26c3c9809747515ef79e2312eda431d00232c2cb09ab642a7a",
+        "result_sha256": "75b16218335ac0d4690f8ba4c788a7fc0d4132a4136156fc054857c2ade61386",
+        "style": "reference_lime",
+        "allow_result_first": true,
+        "recording_audio_verified": true
+      },
+      {
+        "id": "POLITIK-Ss6ud71pmvQ-01-AUDIO-20261102",
+        "source_url": "https://www.youtube.com/watch?v=Ss6ud71pmvQ",
+        "recording_sha256": "d0bdbb676a6b9d2cfd8f5b1c7e8ee3dec25f029dd431418ebf6be6704493062a",
+        "result_sha256": "0008d23d26435a167a28b68035c6c83a82eedab331206b2193195725ec554d8c",
+        "style": "reference_lime",
+        "allow_result_first": true,
+        "recording_audio_verified": true
+      },
+      {
+        "id": "POLITIK-tqyyi1hbGIY-01-AUDIO-20261102",
+        "source_url": "https://www.youtube.com/watch?v=tqyyi1hbGIY",
+        "recording_sha256": "a2b2499fd533821f51976f82336fb4d532b57e6553ec8ffe77405a99b39ba6aa",
+        "result_sha256": "8bdc37553a1dfa93118cc8fabe9e6e12db017b7f400d0fadb9221c891f482a39",
+        "style": "reference_lime",
+        "allow_result_first": true,
+        "recording_audio_verified": true
+      },
+      {
+        "id": "POLITIK-DTz5X5NVSdk-01-AUDIO-20261102",
+        "source_url": "https://www.youtube.com/watch?v=DTz5X5NVSdk",
+        "recording_sha256": "399972732083cc7a3381f5ce307b777fb84ed129238d4a6d36701cfe8443dea3",
+        "result_sha256": "e7476b25189c92cb3b53ab0dd134bdf07c939beae409a256950e5bffbdd4dda1",
+        "style": "reference_lime",
+        "allow_result_first": true,
+        "recording_audio_verified": true
       }
     ]
   },
@@ -268,5 +426,94 @@
     "source_reuse_disclosed": true,
     "recording_method": "Actual PIXORA window capture via CDP during real-time playback",
     "previous_schedule_sha256": "798d5d27d33813cc9c9c1e9816ef37af3136a71f0395b6a895a408fa8822125a"
+  },
+  "randomized_schedule_revision": {
+    "approved_at": "2026-11-02T06:43:15.984147+00:00",
+    "owner_instruction": "screen recorder harus ada suaranya; banyak YouTube politik Indonesia; jam penayangan dan urutan rekaman/hasil diacak",
+    "from_due": "2026-11-02T13:00:00+07:00",
+    "seed": 2026110201,
+    "windows_wib": [
+      [
+        "08:00",
+        "09:50"
+      ],
+      [
+        "13:00",
+        "15:00"
+      ],
+      [
+        "20:00",
+        "21:45"
+      ]
+    ],
+    "posts_per_day": 3,
+    "preserved_job_times": {
+      "TEST-01": "2026-10-21T08:30:00+07:00",
+      "TEST-02": "2026-10-21T13:00:00+07:00",
+      "TEST-03": "2026-10-21T20:00:00+07:00",
+      "TEST-04": "2026-10-22T08:30:00+07:00",
+      "TEST-05": "2026-10-22T13:00:00+07:00",
+      "TEST-06": "2026-10-22T20:00:00+07:00",
+      "TEST-07": "2026-10-23T08:30:00+07:00",
+      "TEST-08": "2026-10-23T13:00:00+07:00",
+      "TEST-09": "2026-10-23T20:00:00+07:00",
+      "TEST-10": "2026-10-24T08:30:00+07:00",
+      "TEST-11": "2026-10-24T13:00:00+07:00",
+      "TEST-12": "2026-10-24T20:00:00+07:00",
+      "TEST-13": "2026-10-25T08:30:00+07:00",
+      "TEST-14": "2026-10-25T13:00:00+07:00",
+      "TEST-15": "2026-10-25T20:00:00+07:00",
+      "TEST-16": "2026-10-26T08:30:00+07:00",
+      "TEST-17": "2026-10-26T13:00:00+07:00",
+      "TEST-18": "2026-10-26T20:00:00+07:00",
+      "TEST-19": "2026-10-27T08:30:00+07:00",
+      "TEST-20": "2026-10-27T13:00:00+07:00",
+      "TEST-21": "2026-10-27T20:00:00+07:00",
+      "SIX-022": "2026-10-28T08:30:00+07:00",
+      "SIX-023": "2026-10-28T13:00:00+07:00",
+      "SIX-024": "2026-10-28T20:00:00+07:00",
+      "SIX-025": "2026-10-29T08:30:00+07:00",
+      "SIX-026": "2026-10-29T13:00:00+07:00",
+      "SIX-027": "2026-10-29T20:00:00+07:00",
+      "SIX-028": "2026-10-30T08:30:00+07:00",
+      "SIX-029": "2026-10-30T13:00:00+07:00",
+      "SIX-030": "2026-10-30T20:00:00+07:00",
+      "SIX-031": "2026-10-31T08:30:00+07:00",
+      "SIX-032": "2026-10-31T13:00:00+07:00",
+      "SIX-033": "2026-10-31T20:00:00+07:00",
+      "SIX-034": "2026-11-01T08:30:00+07:00",
+      "SIX-035": "2026-11-01T13:00:00+07:00",
+      "SIX-036": "2026-11-01T20:00:00+07:00",
+      "SIX-037": "2026-11-02T08:30:00+07:00"
+    },
+    "changed_pending_jobs": 1058,
+    "media_order_randomized": true
+  },
+  "audio_politics_revision": {
+    "from_due": "2026-11-02T13:00:00+07:00",
+    "pair_ids": [
+      "TIRTA-LOCAL-01-AUDIO-20261102",
+      "ARI-ARCHIVE-01-AUDIO-20261102",
+      "PANDJI-LOCAL-02-AUDIO-20261102",
+      "ARI-ARCHIVE-02-AUDIO-20261102",
+      "AGAK-LAEN-LOCAL-01-AUDIO-20261102",
+      "ARI-ARCHIVE-03-AUDIO-20261102",
+      "POLITIK-JdrJRESMaHU-01-AUDIO-20261102",
+      "POLITIK-zJH7SMhB32w-01-AUDIO-20261102",
+      "POLITIK-JVJ_HYiTNdg-01-AUDIO-20261102",
+      "POLITIK-Yw1Ivy1VqUo-01-AUDIO-20261102",
+      "POLITIK-4Z5vtMoiXIM-01-AUDIO-20261102",
+      "POLITIK-cmRpBA2NxqM-01-AUDIO-20261102",
+      "POLITIK-lpQrUTWXHZU-01-AUDIO-20261102",
+      "POLITIK-Seo2OD4AVl0-01-AUDIO-20261102",
+      "POLITIK-lgULm1QV7lI-01-AUDIO-20261102",
+      "POLITIK-Ss6ud71pmvQ-01-AUDIO-20261102",
+      "POLITIK-tqyyi1hbGIY-01-AUDIO-20261102",
+      "POLITIK-DTz5X5NVSdk-01-AUDIO-20261102"
+    ],
+    "politics_pairs": 12,
+    "recordings_have_verified_audio": true,
+    "style": "reference_lime",
+    "hook_before_subtitle": true
   }
 }

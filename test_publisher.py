@@ -90,7 +90,7 @@ class Tests(unittest.TestCase):
 
  def test_real_campaign_has_exact_annual_scope(self):
   rows=p.load_schedule();self.assertEqual(len(rows),1095)
-  self.assertEqual(rows[-1]['due'],'2027-10-20T20:00:00+07:00')
+  self.assertEqual(rows[-1]['due'][:10],'2027-10-20')
   self.assertEqual(rows[0]['id'],'TEST-01')
 
 if __name__=='__main__':unittest.main()
