@@ -429,6 +429,13 @@
       "children": [],
       "error": "More than 30 minutes late; no catch-up burst",
       "updated_at": "2026-11-02T16:40:27.512249+00:00"
+    },
+    "SIX-040": {
+      "state": "children_created",
+      "children": [
+        "18089412827505784"
+      ],
+      "updated_at": "2026-11-03T02:02:03.368296+00:00"
     }
   }
 }
