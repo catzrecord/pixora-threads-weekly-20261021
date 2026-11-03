@@ -442,12 +442,13 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DfQw3GDguBH"
     },
     "SIX-041": {
-      "state": "children_created",
+      "state": "missed",
       "children": [
         "18089448284505784",
         "18089448287505784"
       ],
-      "updated_at": "2026-11-03T07:52:03.620417+00:00"
+      "updated_at": "2026-11-03T15:23:21.658480+00:00",
+      "error": "More than 30 minutes late; no catch-up burst"
     },
     "SIX-042": {
       "state": "container_created",
