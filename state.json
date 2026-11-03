@@ -451,13 +451,14 @@
       "error": "More than 30 minutes late; no catch-up burst"
     },
     "SIX-042": {
-      "state": "container_created",
+      "state": "missed",
       "children": [
         "18089485418505784",
         "18089485421505784"
       ],
-      "updated_at": "2026-11-03T14:41:39.497500+00:00",
-      "container_id": "18089485613505784"
+      "updated_at": "2026-11-03T15:23:23.099588+00:00",
+      "container_id": "18089485613505784",
+      "error": "More than 30 minutes late; no catch-up burst"
     }
   }
 }
