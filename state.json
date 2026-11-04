@@ -472,13 +472,15 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DfTS5tsDzU-"
     },
     "SIX-044": {
-      "state": "publishing",
+      "state": "published",
       "children": [
         "18089563412505784",
         "18089563415505784"
       ],
-      "updated_at": "2026-11-04T06:22:52.915844+00:00",
-      "container_id": "18089563601505784"
+      "updated_at": "2026-11-04T06:22:59.247975+00:00",
+      "container_id": "18089563601505784",
+      "published_id": "17955107346287153",
+      "permalink": "https://www.threads.com/@1fatherx/post/DfTzZuhlWu-"
     }
   }
 }
