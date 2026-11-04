@@ -82,11 +82,13 @@
       "published_at": "2026-11-04T04:50:26.404858+00:00"
     },
     "18141236032722741": {
-      "state": "publishing",
+      "state": "published",
       "root_id": "17970800331188430",
       "container_id": "18089637194505784",
       "reply_text": "DM gw. thanks",
-      "updated_at": "2026-11-04T18:11:45.870545+00:00"
+      "updated_at": "2026-11-04T18:11:52.292032+00:00",
+      "published_id": "18132309376838176",
+      "published_at": "2026-11-04T18:11:52.292010+00:00"
     }
   },
   "scan_offset": 40
