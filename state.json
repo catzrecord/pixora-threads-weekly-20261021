@@ -459,6 +459,13 @@
       "updated_at": "2026-11-03T15:23:23.099588+00:00",
       "container_id": "18089485613505784",
       "error": "More than 30 minutes late; no catch-up burst"
+    },
+    "SIX-043": {
+      "state": "children_created",
+      "children": [
+        "18089536199505784"
+      ],
+      "updated_at": "2026-11-04T01:38:02.161424+00:00"
     }
   }
 }
