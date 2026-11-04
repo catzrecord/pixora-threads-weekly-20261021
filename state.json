@@ -483,12 +483,12 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DfTzZuhlWu-"
     },
     "SIX-045": {
-      "state": "container_created",
+      "state": "publishing",
       "children": [
         "18089603714505784",
         "18089603726505784"
       ],
-      "updated_at": "2026-11-04T13:33:38.651961+00:00",
+      "updated_at": "2026-11-04T13:33:55.500359+00:00",
       "container_id": "18089603936505784"
     }
   }
