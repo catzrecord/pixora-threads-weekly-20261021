@@ -461,13 +461,15 @@
       "error": "More than 30 minutes late; no catch-up burst"
     },
     "SIX-043": {
-      "state": "publishing",
+      "state": "published",
       "children": [
         "18089536199505784",
         "18089536202505784"
       ],
-      "updated_at": "2026-11-04T01:38:53.243503+00:00",
-      "container_id": "18089536385505784"
+      "updated_at": "2026-11-04T01:39:00.066163+00:00",
+      "container_id": "18089536385505784",
+      "published_id": "17970800331188430",
+      "permalink": "https://www.threads.com/@1fatherx/post/DfTS5tsDzU-"
     }
   }
 }
