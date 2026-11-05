@@ -127,11 +127,13 @@
       "published_at": "2026-11-05T02:32:13.289743+00:00"
     },
     "18123963548167276": {
-      "state": "publishing",
+      "state": "published",
       "root_id": "18022026866657706",
       "container_id": "18089713922505784",
       "reply_text": "DM gw. thanks",
-      "updated_at": "2026-11-05T09:36:07.970873+00:00"
+      "updated_at": "2026-11-05T09:36:14.677290+00:00",
+      "published_id": "18059794682645997",
+      "published_at": "2026-11-05T09:36:14.677269+00:00"
     }
   },
   "scan_offset": 41
