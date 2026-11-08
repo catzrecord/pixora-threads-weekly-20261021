@@ -593,12 +593,13 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DfcRqGymRR1"
     },
     "SIX-055": {
-      "state": "children_created",
+      "state": "missed",
       "children": [
         "18090078338505784",
         "18090078344505784"
       ],
-      "updated_at": "2026-11-08T02:05:05.225282+00:00"
+      "updated_at": "2026-11-08T06:48:39.323498+00:00",
+      "error": "More than 30 minutes late; no catch-up burst"
     },
     "SIX-056": {
       "state": "published",
