@@ -217,11 +217,13 @@
       "published_at": "2026-11-09T00:48:42.674288+00:00"
     },
     "17889526281491103": {
-      "state": "publishing",
+      "state": "published",
       "root_id": "18649514668019746",
       "container_id": "18090215906505784",
       "reply_text": "DM gw ya kak.",
-      "updated_at": "2026-11-09T02:32:10.745882+00:00"
+      "updated_at": "2026-11-09T02:32:18.157762+00:00",
+      "published_id": "18219072229359002",
+      "published_at": "2026-11-09T02:32:18.157740+00:00"
     }
   },
   "scan_offset": 41
