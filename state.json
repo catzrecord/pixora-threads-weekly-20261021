@@ -641,13 +641,15 @@
       "updated_at": "2026-11-09T07:24:14.978442+00:00"
     },
     "SIX-060": {
-      "state": "publishing",
+      "state": "published",
       "children": [
         "18090277637505784",
         "18090277640505784"
       ],
-      "updated_at": "2026-11-09T14:34:55.343982+00:00",
-      "container_id": "18090277826505784"
+      "updated_at": "2026-11-09T14:35:02.558501+00:00",
+      "container_id": "18090277826505784",
+      "published_id": "17871190017659774",
+      "permalink": "https://www.threads.com/@1fatherx/post/Dfhjr3RnGKF"
     }
   }
 }
