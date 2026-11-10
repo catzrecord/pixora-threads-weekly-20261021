@@ -663,12 +663,13 @@
       "permalink": "https://www.threads.com/@1fatherx/post/Dfis7POjsOb"
     },
     "SIX-062": {
-      "state": "children_created",
+      "state": "container_created",
       "children": [
         "18090367991505784",
         "18090367994505784"
       ],
-      "updated_at": "2026-11-10T06:40:05.302926+00:00"
+      "updated_at": "2026-11-10T06:40:38.129128+00:00",
+      "container_id": "18090368147505784"
     }
   }
 }
