@@ -716,12 +716,13 @@
       "permalink": "https://www.threads.com/@1fatherx/post/Dfms7SSDb5n"
     },
     "SIX-067": {
-      "state": "children_created",
+      "state": "container_created",
       "children": [
         "18090640523505784",
         "18090640526505784"
       ],
-      "updated_at": "2026-11-12T02:44:04.165262+00:00"
+      "updated_at": "2026-11-12T02:44:36.660422+00:00",
+      "container_id": "18090640688505784"
     }
   }
 }
