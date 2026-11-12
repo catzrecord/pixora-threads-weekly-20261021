@@ -727,12 +727,12 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DfoA0KdEzcs"
     },
     "SIX-068": {
-      "state": "container_created",
+      "state": "publishing",
       "children": [
         "18090670820505784",
         "18090670823505784"
       ],
-      "updated_at": "2026-11-12T07:52:37.442488+00:00",
+      "updated_at": "2026-11-12T07:52:54.200013+00:00",
       "container_id": "18090670982505784"
     }
   }
