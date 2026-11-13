@@ -749,12 +749,13 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DfpMznLDKq_"
     },
     "SIX-070": {
-      "state": "children_created",
+      "state": "container_created",
       "children": [
         "18090771896505784",
         "18090771899505784"
       ],
-      "updated_at": "2026-11-13T01:51:05.597763+00:00"
+      "updated_at": "2026-11-13T01:51:39.010492+00:00",
+      "container_id": "18090772091505784"
     }
   }
 }
