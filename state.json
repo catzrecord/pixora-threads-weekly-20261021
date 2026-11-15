@@ -826,12 +826,12 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DfvkN1ajvkc"
     },
     "SIX-077": {
-      "state": "container_created",
+      "state": "publishing",
       "children": [
         "18091125506505784",
         "18091125509505784"
       ],
-      "updated_at": "2026-11-15T06:21:35.277483+00:00",
+      "updated_at": "2026-11-15T06:21:51.833642+00:00",
       "container_id": "18091125701505784"
     }
   }
