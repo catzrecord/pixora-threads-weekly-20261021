@@ -859,12 +859,12 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DfyTigFnJSn"
     },
     "SIX-080": {
-      "state": "container_created",
+      "state": "publishing",
       "children": [
         "18091280552505784",
         "18091280555505784"
       ],
-      "updated_at": "2026-11-16T06:45:35.815201+00:00",
+      "updated_at": "2026-11-16T06:45:52.306518+00:00",
       "container_id": "18091280789505784"
     }
   }
