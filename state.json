@@ -870,12 +870,13 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DfyvkpNDpFD"
     },
     "SIX-081": {
-      "state": "children_created",
+      "state": "container_created",
       "children": [
         "18091339286505784",
         "18091339289505784"
       ],
-      "updated_at": "2026-11-16T14:45:05.041319+00:00"
+      "updated_at": "2026-11-16T14:45:37.863460+00:00",
+      "container_id": "18091339442505784"
     }
   }
 }
