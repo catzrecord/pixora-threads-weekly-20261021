@@ -901,13 +901,15 @@
       "error": "More than 30 minutes late; no catch-up burst"
     },
     "SIX-084": {
-      "state": "publishing",
+      "state": "published",
       "children": [
         "18091479191505784",
         "18091479197505784"
       ],
-      "updated_at": "2026-11-17T13:31:53.977445+00:00",
-      "container_id": "18091479446505784"
+      "updated_at": "2026-11-17T13:32:00.658639+00:00",
+      "container_id": "18091479446505784",
+      "published_id": "17890629825487136",
+      "permalink": "https://www.threads.com/@1fatherx/post/Df2C1Yrk7ZO"
     }
   }
 }
