@@ -901,12 +901,13 @@
       "error": "More than 30 minutes late; no catch-up burst"
     },
     "SIX-084": {
-      "state": "children_created",
+      "state": "container_created",
       "children": [
         "18091479191505784",
         "18091479197505784"
       ],
-      "updated_at": "2026-11-17T13:31:04.838298+00:00"
+      "updated_at": "2026-11-17T13:31:37.291689+00:00",
+      "container_id": "18091479446505784"
     }
   }
 }
