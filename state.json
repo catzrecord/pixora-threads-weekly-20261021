@@ -892,12 +892,13 @@
       "permalink": "https://www.threads.com/@1fatherx/post/Df03h_BDG6n"
     },
     "SIX-083": {
-      "state": "children_created",
+      "state": "missed",
       "children": [
         "18091447469505784",
         "18091447472505784"
       ],
-      "updated_at": "2026-11-17T06:59:04.702495+00:00"
+      "updated_at": "2026-11-17T08:39:42.914245+00:00",
+      "error": "More than 30 minutes late; no catch-up burst"
     }
   }
 }
