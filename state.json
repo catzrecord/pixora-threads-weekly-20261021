@@ -923,12 +923,13 @@
       "permalink": "https://www.threads.com/@1fatherx/post/Df3Y5DlFVn9"
     },
     "SIX-086": {
-      "state": "children_created",
+      "state": "container_created",
       "children": [
         "18091557542505784",
         "18091557545505784"
       ],
-      "updated_at": "2026-11-18T07:51:05.515526+00:00"
+      "updated_at": "2026-11-18T07:51:38.077982+00:00",
+      "container_id": "18091557710505784"
     }
   }
 }
