@@ -923,13 +923,15 @@
       "permalink": "https://www.threads.com/@1fatherx/post/Df3Y5DlFVn9"
     },
     "SIX-086": {
-      "state": "publishing",
+      "state": "published",
       "children": [
         "18091557542505784",
         "18091557545505784"
       ],
-      "updated_at": "2026-11-18T07:51:54.711806+00:00",
-      "container_id": "18091557710505784"
+      "updated_at": "2026-11-18T07:52:00.763776+00:00",
+      "container_id": "18091557710505784",
+      "published_id": "18418707619094884",
+      "permalink": "https://www.threads.com/@1fatherx/post/Df4AuCOAHQz"
     }
   }
 }
