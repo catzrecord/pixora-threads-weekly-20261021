@@ -967,12 +967,12 @@
       "permalink": "https://www.threads.com/@1fatherx/post/Df6lDsyk-KG"
     },
     "SIX-090": {
-      "state": "container_created",
+      "state": "publishing",
       "children": [
         "18091700264505784",
         "18091700273505784"
       ],
-      "updated_at": "2026-11-19T14:44:41.634133+00:00",
+      "updated_at": "2026-11-19T14:44:58.496216+00:00",
       "container_id": "18091700420505784"
     }
   }
