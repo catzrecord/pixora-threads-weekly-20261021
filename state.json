@@ -945,12 +945,12 @@
       "permalink": "https://www.threads.com/@1fatherx/post/Df4tIWRAuOJ"
     },
     "SIX-088": {
-      "state": "container_created",
+      "state": "publishing",
       "children": [
         "18091639175505784",
         "18091639184505784"
       ],
-      "updated_at": "2026-11-19T01:49:39.056693+00:00",
+      "updated_at": "2026-11-19T01:49:55.728351+00:00",
       "container_id": "18091639355505784"
     }
   }
