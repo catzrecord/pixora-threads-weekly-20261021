@@ -1044,12 +1044,13 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DgAdG6kiVOP"
     },
     "SIX-097": {
-      "state": "children_created",
+      "state": "container_created",
       "children": [
         "18091977506505784",
         "18091977512505784"
       ],
-      "updated_at": "2026-11-22T01:12:03.843891+00:00"
+      "updated_at": "2026-11-22T01:12:36.461826+00:00",
+      "container_id": "18091977668505784"
     }
   }
 }
