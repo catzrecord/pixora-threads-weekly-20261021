@@ -1077,13 +1077,15 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DgDCeuZjvIW"
     },
     "SIX-100": {
-      "state": "publishing",
+      "state": "published",
       "children": [
         "18092107607505784",
         "18092107610505784"
       ],
-      "updated_at": "2026-11-23T02:38:53.016815+00:00",
-      "container_id": "18092107781505784"
+      "updated_at": "2026-11-23T02:39:00.450825+00:00",
+      "container_id": "18092107781505784",
+      "published_id": "18127737415712060",
+      "permalink": "https://www.threads.com/@1fatherx/post/DgEU36GivcS"
     }
   }
 }
