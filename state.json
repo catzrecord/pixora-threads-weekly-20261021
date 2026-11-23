@@ -1099,12 +1099,12 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DgE0rwWjb8i"
     },
     "SIX-102": {
-      "state": "container_created",
+      "state": "publishing",
       "children": [
         "18092160977505784",
         "18092160986505784"
       ],
-      "updated_at": "2026-11-23T14:29:55.296525+00:00",
+      "updated_at": "2026-11-23T14:30:12.606332+00:00",
       "container_id": "18092161439505784"
     }
   }
