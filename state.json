@@ -1132,12 +1132,12 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DgHcACMDPg5"
     },
     "SIX-105": {
-      "state": "container_created",
+      "state": "publishing",
       "children": [
         "18092271035505784",
         "18092271038505784"
       ],
-      "updated_at": "2026-11-24T13:43:38.796383+00:00",
+      "updated_at": "2026-11-24T13:43:56.054223+00:00",
       "container_id": "18092271233505784"
     }
   }
