@@ -1152,13 +1152,15 @@
       "container_id": "18092338868505784"
     },
     "SIX-107": {
-      "state": "publishing",
+      "state": "published",
       "children": [
         "18092360879505784",
         "18092360885505784"
       ],
-      "updated_at": "2026-11-25T06:20:54.520931+00:00",
-      "container_id": "18092361146505784"
+      "updated_at": "2026-11-25T06:21:00.405966+00:00",
+      "container_id": "18092361146505784",
+      "published_id": "17967323235253642",
+      "permalink": "https://www.threads.com/@1fatherx/post/DgJ33mfjsTg"
     }
   }
 }
