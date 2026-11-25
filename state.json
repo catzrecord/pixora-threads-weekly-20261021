@@ -1143,13 +1143,14 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DgIFxkPDx_u"
     },
     "SIX-106": {
-      "state": "container_created",
+      "state": "missed",
       "children": [
         "18092338712505784",
         "18092338715505784"
       ],
-      "updated_at": "2026-11-25T01:56:36.973047+00:00",
-      "container_id": "18092338868505784"
+      "updated_at": "2026-11-25T09:22:18.625465+00:00",
+      "container_id": "18092338868505784",
+      "error": "More than 30 minutes late; no catch-up burst"
     },
     "SIX-107": {
       "state": "published",
