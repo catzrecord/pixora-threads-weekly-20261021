@@ -1186,12 +1186,13 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DgMESoSktls"
     },
     "SIX-110": {
-      "state": "children_created",
+      "state": "container_created",
       "children": [
         "18092467880505784",
         "18092467883505784"
       ],
-      "updated_at": "2026-11-26T06:15:05.598673+00:00"
+      "updated_at": "2026-11-26T06:15:38.857576+00:00",
+      "container_id": "18092468039505784"
     }
   }
 }
