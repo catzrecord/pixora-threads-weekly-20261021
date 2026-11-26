@@ -1197,12 +1197,13 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DgMcGFED5kQ"
     },
     "SIX-111": {
-      "state": "children_created",
+      "state": "container_created",
       "children": [
         "18092507951505784",
         "18092507954505784"
       ],
-      "updated_at": "2026-11-26T14:32:04.964769+00:00"
+      "updated_at": "2026-11-26T14:32:37.586592+00:00",
+      "container_id": "18092508203505784"
     }
   }
 }
