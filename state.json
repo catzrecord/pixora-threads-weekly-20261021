@@ -1219,13 +1219,15 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DgOog_Njwl_"
     },
     "SIX-113": {
-      "state": "publishing",
+      "state": "published",
       "children": [
         "18092581643505784",
         "18092581646505784"
       ],
-      "updated_at": "2026-11-27T06:14:54.095651+00:00",
-      "container_id": "18092581802505784"
+      "updated_at": "2026-11-27T06:14:59.550579+00:00",
+      "container_id": "18092581802505784",
+      "published_id": "18110616836255703",
+      "permalink": "https://www.threads.com/@1fatherx/post/DgPAxy1Gcyl"
     }
   }
 }
