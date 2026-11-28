@@ -1241,12 +1241,13 @@
       "permalink": "https://www.threads.com/@1fatherx/post/DgP5_gtjzLN"
     },
     "SIX-115": {
-      "state": "children_created",
+      "state": "missed",
       "children": [
         "18092667542505784",
         "18092667545505784"
       ],
-      "updated_at": "2026-11-28T01:11:03.867200+00:00"
+      "updated_at": "2026-11-28T08:33:27.748201+00:00",
+      "error": "More than 30 minutes late; no catch-up burst"
     },
     "SIX-116": {
       "state": "published",
